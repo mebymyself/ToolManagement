@@ -23,6 +23,7 @@ gem 'apartment'
 
 
 group :development, :test do 
+	gem 'pry-rails'
 	gem 'guard'
 	gem 'guard-livereload'
 	gem 'guard-rspec'
