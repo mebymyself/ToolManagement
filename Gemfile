@@ -15,6 +15,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'devise'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
+gem 'apartment'
+
 
 group :development, :test do 
 	gem 'guard'
@@ -25,6 +31,7 @@ group :development, :test do
 	gem 'factory_girl_rails'
 	gem 'database_cleaner'
 	gem 'shoulda-matchers', require: false
+	gem 'quiet_assets'
 end
 
 
