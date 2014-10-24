@@ -11,18 +11,11 @@ class SubdomainBlank
 end
 
 Rails.application.routes.draw do
-  
-  get 'employees/index'
-
-  get 'employees/new'
-
-  get 'employees/edit'
-
-  get 'employees/show'
 
   constraints(SubdomainPresent) do 
   	root 'issuances#index', as: :subdomain_root
   	devise_for :users
+  	resources :employees
   end
   
   constraints(SubdomainBlank) do 

@@ -3,3 +3,24 @@
 
 @import "layout";
 @import "signin";
+
+body {
+	// background-color: #F2F2F2;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, 'Lato', sans-serif;
+	font-weight: 300px;
+	// padding-top: 70px;
+	// padding-bottom: 30px;
+}
+
+// .container {
+// 	width: 980px;
+// }
+
+.navbar-default {
+	background-color: #FFF;
+	border-radius: 0px !important;
+}
+
+ul.nav a:hover { 
+	color: #F7CA18 !important; 
+}
