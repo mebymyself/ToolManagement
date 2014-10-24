@@ -1,0 +1,11 @@
+<p>Barcode ID: <%= @tool.tool_barcode %> </p>
+<div>
+	<p><strong>Tool Description:</strong></p>
+	<p><%= @tool.description %></p>
+	<p>qty total</p>
+	<p><%= @tool.quantity %></p>
+	<p>qty on hand</p>
+	<p><%#= @tool.quantity_on_hand %></p>
+</div>
+
+<%= link_to "Back to Tools", tools_path %>

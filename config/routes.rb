@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   	root 'issuances#index', as: :subdomain_root
   	devise_for :users
   	resources :employees
+    resources :tools
+    get 'tags/:tag', to: 'tools#index', as: :tag
   end
   
   constraints(SubdomainBlank) do 
