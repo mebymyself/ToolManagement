@@ -1,7 +1,8 @@
 class Account < ActiveRecord::Base
-	RESTRICTED_SUBDOMAINS = %w(www)
+	RESTRICTED_SUBDOMAINS = %w(www admin toolhero tool )
 
 	belongs_to :owner, class_name: 'User'
+  has_many :employees
 
   validates :owner, presence: true
 	validates :subdomain, presence: true,
