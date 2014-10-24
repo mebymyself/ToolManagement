@@ -20,6 +20,10 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 gem 'apartment'
+gem 'acts-as-taggable-on'
+gem 'pg_search'
+gem 'roo'
+gem 'paperclip', '~> 4.2'
 
 
 group :development, :test do 
