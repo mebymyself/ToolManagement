@@ -1,1 +1,49 @@
-<div class="well">Your Transactions</div>
+<!-- <div class="well">Your Transactions</div> -->
+
+<div class="page-header">
+  <h1>Transactions </h1><p><%#= page_entries_info @issuances %></p>
+</div>
+
+<div>
+  <p class="pull-right">
+    <%= link_to 'Issue Tool', new_issuance_path, class: "btn btn-primary btn-sm" %> 
+    <%#= link_to 'Tool Return', new_issuance_path, class: "btn btn-default btn-sm" %>
+  </p>
+</div>
+    
+    <div class="row">
+      <div class=".col-xs-12 .col-md-8">
+        <table class="table table-hover info-list">
+          <thead>
+            <tr>
+            <th></th>
+            <th>No</th>
+             <th>Employee</th>
+             <th>Tool Barcode</th>
+             <th>Issued At</th>
+             <th>Due Date</th>
+             <th>Returned At</th>
+             <th>Quantity</th>
+             <th colspan="2"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @issuances.each do |issuance| %>
+              <tr>
+                <td></td>
+              	<td><%= issuance.id %></td>
+                <td><%= issuance.employee_barcode %></td>
+                <td><%= issuance.tool_barcode %></td>
+                <td><%= issuance.issued_at %></td>
+                <td><%= issuance.due_date %></td>
+                <td><%= issuance.returned_at %></td>
+                <td><%= issuance.quantity %></td>
+                <td><%= link_to 'Show', issuance %></td>
+                <td><%= link_to 'Return Tool', edit_issuance_path(issuance) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>

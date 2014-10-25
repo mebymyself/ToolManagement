@@ -10,11 +10,13 @@ body {
 	font-weight: 300px;
 	// padding-top: 70px;
 	// padding-bottom: 30px;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
 }
 
-// .container {
-// 	width: 980px;
-// }
+.container {
+	width: 980px;
+}
 
 .navbar-default {
 	background-color: #FFF;
@@ -23,4 +25,8 @@ body {
 
 ul.nav a:hover { 
 	color: #F7CA18 !important; 
+}
+
+#search-size {
+	width: 350px;
 }
