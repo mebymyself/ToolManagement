@@ -7,6 +7,15 @@ class IssuancesController < ApplicationController
   	@issuance = Issuance.new
   end
 
+  def create
+  	@issuance = Issuance.new(issuance_params)
+
+  	if @issuance.save
+  		redirect_to "/issuances"
+  	else
+  		render :new
+  end
+
 	def show
   	@issuance = Issuance.find(params[:id])
   end
