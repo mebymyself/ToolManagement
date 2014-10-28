@@ -12,10 +12,10 @@ class ToolsController < ApplicationController
   end
 
 
-  # def import
-  #   Tool.import(params[:file])
-  #   redirect_to root_url, notice: "Tools imported."
-  # end
+  def import
+    Tool.import(params[:file])
+    redirect_to root_url, notice: "Tools imported."
+  end
 
 
   def new

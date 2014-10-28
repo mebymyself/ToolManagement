@@ -19,6 +19,11 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def import
+    Employee.import(params[:file])
+    redirect_to root_url, notice: "Employees imported."
+  end
+
 
   def show
   	@employee = Employee.find(params[:id])
@@ -51,7 +56,7 @@ class EmployeesController < ApplicationController
   private
 
   def employee_params
-  	params.require(:employee).permit(:first_name, :last_name, :barcode, :tag_list, :avatar)
+  	params.require(:employee).permit(:first_name, :last_name, :barcode, :tag_list, :avatar, :file)
   end
 
 

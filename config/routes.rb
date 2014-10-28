@@ -15,14 +15,23 @@ Rails.application.routes.draw do
   constraints(SubdomainPresent) do 
   	root 'issuances#index', as: :subdomain_root
   	devise_for :users
-  	resources :issuances
-  	resources :employees
-    resources :tools
+  	
+    resources :settings, only: [:index]
+    resources :issuances  
+  	resources :employees do 
+      collection { post :import }
+    end
+    resources :tools do 
+      collection { post :import }
+    end
+
     get 'tags/:tag', to: 'tools#index', as: :tag
   end
   
+
   constraints(SubdomainBlank) do 
 	  root 'welcome#index'
 	  resources :accounts, only: [:new, :create]
 	end
+
 end

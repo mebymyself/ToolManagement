@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>Settings</h1>
+</div>
+<div class="well well-lg">
+  <h2>Import Tools</h2><br/>
+  <p>A CSV or Excel file can be used to import tools.  The first row should be the column name.  The following columns are allowed.</p>
+  <ul>
+    <li>Barcode - String type</li>
+    <li>Description - Text type</li>
+    <li>Notes - Text type</li>
+  </ul><br/>
+
+      <div class="form-group">
+      <%= form_tag import_tools_path, multipart: true do %>
+        <%= file_field_tag :tool_import_file %><br/>
+        <%= submit_tag "Import", class: "btn btn-primary btn-sm" %>
+      <% end %>
+      </div>
+ 
+</div>
+
+<div class="well well-lg">
+  <h2>Import Employees</h2><br/>
+  <p>A CSV or Excel file can be used to import employees.  The first row should be the column name.  The following columns are allowed.</p>
+  <ul>
+    <li>First Name - String type</li>
+    <li>Last Name - String type</li>
+    <li>Barcode - String type</li>
+  </ul><br/>
+
+      <div class="form-group">
+      <%= form_tag import_employees_path, multipart: true do %>
+        <%= file_field_tag :employee_import_file %><br/>
+        <%= submit_tag "Import", class: "btn btn-primary btn-sm" %>
+      <% end %>
+      </div>
+ 
+</div>
