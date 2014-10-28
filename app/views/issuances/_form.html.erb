@@ -1,7 +1,7 @@
 <div class="col-md-6">
   <%= form_for @issuance do |f| %>
     <% if @issuance.errors.any? %>
-      <div id="error_explanation" class="alert alert-danger">
+      <div id="error_explanation" class="alert alert-danger close" data-dismiss="alert" >
         <h2><%= pluralize(@issuance.errors.count, "error") %> prohibited this transaction from being saved:</h2>
 
         <ul>

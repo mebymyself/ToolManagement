@@ -1,7 +1,7 @@
 <div class="form-container">
   <%= form_for( @tool, :html => { :multipart => true } ) do |f| %>
     <% if @tool.errors.any? %>
-      <div id="error_explanation" class="bit-warning">
+      <div id="error_explanation" class="bit-warning close" data-dismiss="alert">
         <h2><%= pluralize(@tool.errors.count, "error") %> prohibited this tool from being saved:</h2>
 
         <ul>
