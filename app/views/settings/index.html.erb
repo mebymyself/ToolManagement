@@ -13,7 +13,7 @@
 
       <div class="form-group">
       <%= form_tag import_tools_path, multipart: true do %>
-        <%= file_field_tag :tool_import_file %><br/>
+        <%= file_field_tag :file %><br/>
         <%= submit_tag "Import", class: "btn btn-primary btn-sm" %>
       <% end %>
       </div>
@@ -31,7 +31,7 @@
 
       <div class="form-group">
       <%= form_tag import_employees_path, multipart: true do %>
-        <%= file_field_tag :employee_import_file %><br/>
+        <%= file_field_tag :file %><br/>
         <%= submit_tag "Import", class: "btn btn-primary btn-sm" %>
       <% end %>
       </div>

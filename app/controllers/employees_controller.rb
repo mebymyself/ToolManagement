@@ -24,16 +24,13 @@ class EmployeesController < ApplicationController
     redirect_to root_url, notice: "Employees imported."
   end
 
-
   def show
   	@employee = Employee.find(params[:id])
   end
 
-
   def edit
   	@employee = Employee.find(params[:id])
   end
-
 
   def update
   	@employee = Employee.find(params[:id])
@@ -45,7 +42,6 @@ class EmployeesController < ApplicationController
   	end
   end
   
-
   def destroy
   	@employee = Employee.find(params[:id])
   	@employee.destroy

@@ -15,15 +15,15 @@ class Tool < ActiveRecord::Base
   end
 
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      tool = Tool.find_or_create_by(:barcode => row["barcode"])
-      row.to_hash.each do |key, value|
-        if tool.has_attributes?(key)
-          tool.send("#{key}=", value)
+      CSV.foreach(file.path, headers: true) do |row|
+        tool = Tool.find_or_create_by(:barcode => row["barcode"])
+        row.to_hash.each do |key, value|
+          if tool.has_attribute?(key)
+            tool.send("#{key}=", value)
+          end
         end
-      end
-      tool.save!
-    end
-  end
+        tool.save!
+      end 
+    end 
 
 end
