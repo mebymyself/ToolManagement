@@ -14,6 +14,7 @@ class IssuancesController < ApplicationController
   		redirect_to "/issuances"
   	else
   		render :new
+    end
   end
 
 	def show
