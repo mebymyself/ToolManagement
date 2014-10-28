@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028043001) do
+ActiveRecord::Schema.define(version: 20141028044532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,9 +38,13 @@ ActiveRecord::Schema.define(version: 20141028043001) do
   create_table "issuances", force: true do |t|
     t.integer  "employee_id"
     t.datetime "issuance_date"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "due_date"
+    t.datetime "return_date"
+    t.string   "outgoing_condition"
+    t.string   "incoming_condition"
+    t.integer  "quantity"
   end
 
   create_table "taggings", force: true do |t|
@@ -74,6 +78,10 @@ ActiveRecord::Schema.define(version: 20141028043001) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "issuance_id"
+    t.string   "model_number"
+    t.datetime "warranty_end"
+    t.datetime "calibration_end"
   end
 
   create_table "users", force: true do |t|
