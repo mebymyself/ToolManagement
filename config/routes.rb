@@ -12,6 +12,20 @@ end
 
 Rails.application.routes.draw do
 
+  get 'line_item/new'
+
+  get 'line_item/create'
+
+  get 'line_item/update'
+
+  get 'line_item/edit'
+
+  get 'line_item/destroy'
+
+  get 'line_item/index'
+
+  get 'line_item/show'
+
   constraints(SubdomainPresent) do 
   	root 'issuances#index', as: :subdomain_root
   	devise_for :users

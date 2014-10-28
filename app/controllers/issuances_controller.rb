@@ -5,6 +5,7 @@ class IssuancesController < ApplicationController
 
 	def new
   	@issuance = Issuance.new
+    @line_item = @issuance.line_items.build
   end
 
   def create
@@ -38,7 +39,7 @@ class IssuancesController < ApplicationController
 	private
 
 	def issuance_params
-  	params.require(:issuance).permit(:incoming_employee_barcode, :incoming_tool_barcode)
+  	params.require(:issuance).permit(:incoming_employee_barcode)
   end
 
 
