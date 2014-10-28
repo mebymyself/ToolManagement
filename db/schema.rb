@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028044532) do
+ActiveRecord::Schema.define(version: 20141028150642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20141028044532) do
     t.string   "outgoing_condition"
     t.string   "incoming_condition"
     t.integer  "quantity"
+    t.integer  "tool_id"
   end
 
   create_table "taggings", force: true do |t|

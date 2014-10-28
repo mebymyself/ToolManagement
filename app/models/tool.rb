@@ -1,5 +1,5 @@
 class Tool < ActiveRecord::Base
-	belongs_to :issuance
+	has_many :issuances
 
  	acts_as_taggable
 

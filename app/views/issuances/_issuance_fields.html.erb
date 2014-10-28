@@ -1,0 +1,10 @@
+<div class = "nested-fields issuance-fields">
+   	<div id = "tool_from_list">
+	      	<%= f.association :tool, :collection => Tool.all, :prompt => 'Choose an existing tool' %>
+	</div>
+	    	<%= link_to_add_association 'or create a new tool', f, :tool %>
+	    	<%= link_to_remove_association "remove tool", f %>
+</div>
+
+
+

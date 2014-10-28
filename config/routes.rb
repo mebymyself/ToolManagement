@@ -15,11 +15,10 @@ Rails.application.routes.draw do
   constraints(SubdomainPresent) do 
   	root 'issuances#index', as: :subdomain_root
   	devise_for :users
-  	resources :employees, :shallow => :true do
-  		resources :issuances do 
-    		resources :tools
-    	end
-    end
+  	resources :employees  
+    resources :issuances, shallow: true
+    
+    resources :tools
     get 'tags/:tag', to: 'tools#index', as: :tag
   end
   

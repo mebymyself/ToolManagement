@@ -1,0 +1,52 @@
+<div class="col-md-6">
+	<%= form_for @issuance do |f| %>
+		<% if @issuance.errors.any? %>
+	    	<div id="error_explanation" class="alert alert-danger">
+	      		<h2><%= pluralize(@issuance.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+		    	<ul>
+		     		<% @issuance.errors.full_messages.each do |message| %>
+		      			<li> * <%= message %></li>
+		   			<% end %>
+		    	</ul>
+	    	</div>
+	 	<% end %>
+		
+		<div class="form-group">
+			<%= f.label :employee_id, "Employee Barcode" %>
+			<%= f.text_field :employee_id, class: "form-control", autofocus: true %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :issuance_date, "Issued On" %>
+			<%= f.text_field :issuance_date, :value => Time.now.in_time_zone("Eastern Time (US & Canada)"), class: "form-control" %>
+		</div>
+	
+		<div class="form-group">
+			<%= f.label :due_date %><br>
+			<%= f.date_field :due_date, class: "form-control" %>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label :return_date, "Returned On" %>
+			<%= f.date_field :return_date, class: "form-control" %>
+		</div>
+
+		<br>
+
+	  	<h3>Tools</h3>
+	  	<div id="tools">
+	    	<%= f.fields_for :tools do |tool| %>
+	      		<%= render 'tool_fields', :f => tool %>
+	    	<% end %>
+	    	<div class="links">
+	      		<%= link_to_add_association 'add tool', f, :tools %>
+	    	</div>
+	  	</div>
+	  	<%= f.submit "submit", class: "btn btn-primary" %>
+	<% end %>
+		
+</div> 
+
+
+
+
