@@ -1,10 +1,9 @@
 class Tool < ActiveRecord::Base
 	belongs_to :issuance
-  has_one :line_item
 
-  acts_as_taggable
+ 	acts_as_taggable
 
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 end
