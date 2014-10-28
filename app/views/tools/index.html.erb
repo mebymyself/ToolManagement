@@ -22,10 +22,10 @@
             <tr>
               <td><%= image_tag tool.image.url(:thumb) %></td>
               <td><%= raw tool.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></td>
-              <td><%= tool.tool_barcode %></td>
+              <td><%= tool.barcode %></td>
               <td><%= tool.description %></td>
               <td><%= tool.quantity %></td>
-              <td><%#= tool.quantity_on_hand %></td>
+              <td><%= tool.quantity_on_hand %></td>
               <td><%= link_to 'Show', tool %></td>
               <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
               <td><%= link_to 'Destroy', tool, class: "label label-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>

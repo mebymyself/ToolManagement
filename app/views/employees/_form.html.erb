@@ -22,12 +22,12 @@
       <%= f.text_field :last_name, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :employee_barcode, "Barcode ID" %>
-      <%= f.text_field :employee_barcode, class: "form-control" %>
+      <%= f.label :barcode, "Barcode ID" %>
+      <%= f.text_field :barcode, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%#= f.label :avatar, "Add an Avatar" %>
-      <%#= f.file_field :avatar %>
+      <%= f.label :avatar, "Add an Avatar" %>
+      <%= f.file_field :avatar %>
     </div>          
     <div class="form-group">
       <%= f.submit "submit", class: "btn btn-primary" %>

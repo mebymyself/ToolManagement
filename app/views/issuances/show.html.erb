@@ -1,0 +1,10 @@
+<h3>Transaction ID: <%= @issuance.id %> </h3>
+  <p>Employee Barcode: <%= @issuance.employee_barcode %></p>
+  <p>Tool Barcode: <%= @issuance.tool_barcode %></p>
+  <p>Issued on: <%= @issuance.issued_on %></p>
+  <p>Due date: <%= @issuance.due_date %></p>
+  <p>Returned on: <%= @issuance.returned_on %></p>
+  <p>Quantity checked out: <%= @issuance.quantity %></p>
+
+
+<%= link_to "Back to Tools", issuances_path %>

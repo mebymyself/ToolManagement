@@ -20,9 +20,9 @@
             <th>No</th>
              <th>Employee</th>
              <th>Tool Barcode</th>
-             <th>Issued At</th>
+             <th>Issued On</th>
              <th>Due Date</th>
-             <th>Returned At</th>
+             <th>Returned On</th>
              <th>Quantity</th>
              <th colspan="2"></th>
             </tr>
@@ -37,7 +37,7 @@
                 <td><%= issuance.tool_barcode %></td>
                 <td><%= issuance.issued_at %></td>
                 <td><%= issuance.due_date %></td>
-                <td><%= issuance.returned_at %></td>
+                <td><%= issuance.returned_on %></td>
                 <td><%= issuance.quantity %></td>
                 <td><%= link_to 'Show', issuance %></td>
                 <td><%= link_to 'Return Tool', edit_issuance_path(issuance) %></td>
