@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :employee do
     first_name "MyString"
     last_name "MyString"
-    employee_barcode "MyString"
+    e_barcode "MyString"
   end
 end

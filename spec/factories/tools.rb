@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :tool do
-    tool_barcode "MyString"
+    t_barcode "MyString"
     description "MyText"
-    quantity 1
+    quanity 1
+    quantity_on_hand 1
     notes "MyText"
   end
 end

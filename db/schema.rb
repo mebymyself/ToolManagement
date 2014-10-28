@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025003311) do
+ActiveRecord::Schema.define(version: 20141027200748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20141025003311) do
   create_table "employees", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "employee_barcode"
+    t.string   "barcode"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"
@@ -37,18 +37,11 @@ ActiveRecord::Schema.define(version: 20141025003311) do
 
   create_table "issuances", force: true do |t|
     t.integer  "employee_id"
-    t.datetime "issuance_date"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "line_items", force: true do |t|
-    t.integer  "issuance_id"
     t.integer  "tool_id"
     t.integer  "quantity"
-    t.datetime "tool_issued_at"
+    t.datetime "issued_on"
     t.datetime "due_date"
+    t.datetime "returned_on"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,7 +67,7 @@ ActiveRecord::Schema.define(version: 20141025003311) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "tools", force: true do |t|
-    t.string   "tool_barcode"
+    t.string   "barcode"
     t.text     "description"
     t.integer  "quantity"
     t.text     "notes"
