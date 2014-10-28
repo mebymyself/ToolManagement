@@ -1,10 +1,10 @@
 class Issuance < ActiveRecord::Base
-	 
+
   attr_accessor :incoming_tool_barcode
   attr_accessor :incoming_employee_barcode
 
   belongs_to :employee
-	belongs_to :tool
+  has_many :line_items
 
   validate :quantity_is_available, unless: :returned_on?
   validate :quantity_on_hand_cannot_be_less_than_zero, unless: :returned_on?
@@ -40,5 +40,5 @@ class Issuance < ActiveRecord::Base
   end
 
 
-	
+
 end

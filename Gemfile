@@ -24,6 +24,7 @@ gem 'acts-as-taggable-on'
 gem 'pg_search'
 gem 'roo'
 gem 'paperclip', '~> 4.2'
+gem "cocoon"
 
 
 group :development, :test do 
