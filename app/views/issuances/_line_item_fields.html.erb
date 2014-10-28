@@ -1,6 +1,7 @@
 <div class="nested-fields line_item_fields">
-  <div id = "tool_from_list">
-    <%= f.association :tool, label_method: :description, :prompt => 'Choose a tool' %>
+  <div class="form-group">
+    <%= f.label :incoming_tool_barcode, "Tool Barcode" %>
+    <%= f.text_field :incoming_tool_barcode, class: "form-control" %>
   </div>
   
   <div class="form-group">

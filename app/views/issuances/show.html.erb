@@ -1,10 +1,42 @@
-<h3>Transaction ID: <%= @issuance.id %> </h3>
-  <p>Employee Barcode: <%= @issuance.employee_barcode %></p>
-  <p>Tool Barcode: <%= @issuance.tool_barcode %></p>
-  <p>Issued on: <%= @issuance.issued_on %></p>
-  <p>Due date: <%= @issuance.due_date %></p>
-  <p>Returned on: <%= @issuance.returned_on %></p>
-  <p>Quantity checked out: <%= @issuance.quantity %></p>
+
+<div class="page-header">
+	<h1>Transaction ID: <%= @issuance.id %>  </h1><p><%#= page_entries_info @issuances %></p>
+	<p>Employee Barcode: <%= @issuance.employee_barcode %></p>
+	<p>Issuance Date: <%= @issuance.created_at %></p>
+</div>
 
 
-<%= link_to "Back to Tools", issuances_path %>
+
+<div class="row">
+	<div class=".col-xs-12 .col-md-8">
+		<table class="table table-hover info-list">
+			<thead>
+				<tr>
+					<th>Issued on</th>
+					<th>Tool barcode</th>
+					<th>Tool description</th>
+					<th>Quantity checked out</th>
+					<th>Due Date</th>
+					<th>Returned On</th>
+					<th colspan="2"></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<%= @issuance.line_items.each do |line_item| %>
+				<tr>
+					<td><%= line_item.created_at %></td>
+					<td><%= line_item.tool_barcode %></td>
+					<td><%= line_item.tool.description %> </td>
+					<td><%= line_item.quantity %></td>
+					<td><%= line_item.due_date %></td>
+					<td><%= line_item.return_date %></td>
+					<td><%= link_to 'Return Tool', edit_issuance_path(issuance) %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<%= link_to "Back to issuances", issuances_path %>

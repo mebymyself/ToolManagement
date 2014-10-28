@@ -14,7 +14,11 @@
 
 
   <div class="form-group">
-      <%= f.association :employee, label_method: :first_name, :prompt => 'Choose an employee' %>
+      <div class="form-group">
+        <%= f.label :incoming_employee_barcode, "Employee Barcode" %>
+        <%= f.text_field :incoming_employee_barcode, class: "form-control", autofocus: true %>
+      </div>
+      <%#= f.association :employee, label_method: lambda { |employee| "#{employee.first_name}  #{employee.last_name}" }, value_method: :barcode, :prompt => 'Choose an employee' %>
       <br>
       
       <h3>Line Items</h3>
@@ -27,7 +31,7 @@
           </div>
         </div>
 
-      <%= f.submit "submit", class: "btn btn-primary" %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
 
   </div>
     
