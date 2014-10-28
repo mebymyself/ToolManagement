@@ -1,0 +1,28 @@
+<div class="nested-fields line_item_fields">
+  <div id = "tool_from_list">
+    <%= f.association :tool, label_method: :description, :prompt => 'Choose a tool' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :due_date %><br>
+    <%= f.date_field :due_date, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :return_date %><br>
+    <%= f.date_field :return_date, class: "form-control" %>
+  </div>
+  
+  <%= link_to_remove_association "remove line item", f %>
+</div>
+
+
+
+
+
+    
