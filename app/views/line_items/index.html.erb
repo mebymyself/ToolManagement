@@ -18,7 +18,7 @@
 			</thead>
 
 			<tbody>
-				<%= @issuance.line_items.each do |line_item| %>
+				<% @issuance.line_items.each do |line_item| %>
 					<tr>
 						<td><%= line_item.tool.barcode %></td>
 						<td><%= line_item.tool.description %> </td>
@@ -26,7 +26,7 @@
 						<td><%= line_item.due_date %></td>
 						<td><%= line_item.return_date %></td>
 						<td>
-							<%= form_for edit_line_item_path(line_item) do |f| %>
+							<%= form_for line_item do |f| %>
 								<%= f.submit "Return tool" %>
 							<% end %>	
 						</td>

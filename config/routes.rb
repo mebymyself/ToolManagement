@@ -12,6 +12,8 @@ end
 
 Rails.application.routes.draw do
 
+  get 'line_items/edit'
+
   get 'line_item/new'
 
   get 'line_item/create'
@@ -29,8 +31,10 @@ Rails.application.routes.draw do
   constraints(SubdomainPresent) do 
   	root 'issuances#index', as: :subdomain_root
   	devise_for :users
-  	resources :issuances 
-  	resources :employees
+  	resources :issuances do
+      resources :line_items, :shallow => true
+    end
+    resources :employees
     resources :tools
     get 'tags/:tag', to: 'tools#index', as: :tag
   end

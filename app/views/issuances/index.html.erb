@@ -31,8 +31,7 @@
                 	<td><%= issuance.id %></td>
                   <td><%= issuance.employee.first_name %> <%= issuance.employee.last_name %></td>
                   <td><%= issuance.created_at %></td>
-                  <td><%= link_to 'Show', issuance %></td>
-                  <td><%= link_to 'Return Tool', edit_issuance_path(issuance) %></td>
+                  <td><%= link_to 'Show', issuance_line_items_path(issuance) %></td>
                 </tr>
             <% end %>
           </tbody>

@@ -1,7 +1,7 @@
 var ready;
 ready = function() {  
 	$('#activate_scanner').click(function(){
-		$("#webcam").scriptcam({
+		$("#webcam_employee").scriptcam({
 			path: '/assets/',
 			width: 320,
 			height: 240,
@@ -17,7 +17,34 @@ ready = function() {
 				clearInterval(refreshScanner);
 				$('#issuance_incoming_employee_barcode').attr('value', decodeValue);
 				playasound();
-				$('#webcam').remove();
+				$('#webcam_employee').remove();
+				$('#webcam_employee_placeholder').append("<div id=\"webcam_employee\"></div>");
+				alert("Scan success!");
+			}
+		}, 1000);
+	});
+
+	$('#activate_scanner_tool').click(function(){
+		var id = $('#tool_barcode').attr('for');
+		console.log(id)
+		$("#webcam_tool").scriptcam({
+			path: '/assets/',
+			width: 320,
+			height: 240,
+			onError:onError,
+			cornerRadius:0,
+			onWebcamReady:onWebcamReady
+		});
+
+		var refreshScanner = setInterval(function(){
+			var decodeValue = $.scriptcam.getBarCode();
+			console.log(decodeValue);
+			 if(!!decodeValue) {
+				clearInterval(refreshScanner);
+				$("#" + id).attr('value', decodeValue);
+				playasound();
+				$('#webcam_tool').remove();
+				$('#webcam_placeholder').append("<div id=\"webcam\"></div>");
 				alert("Scan success!");
 			}
 		}, 1000);
