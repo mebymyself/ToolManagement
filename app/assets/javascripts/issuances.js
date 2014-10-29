@@ -1,5 +1,15 @@
 var ready;
 ready = function() {  
+
+	// JavaScript for dataTable applied to issuance_index
+	$('#issuance-table').dataTable({
+		"columnDefs": [{
+			"targets": 4,
+			"orderable": false
+		}]
+	});
+
+	// JavaScript for scanning barcode
 	$('#activate_scanner').click(function(){
 		$("#webcam_employee").scriptcam({
 			path: '/assets/',
