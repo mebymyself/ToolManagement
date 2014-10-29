@@ -16,11 +16,31 @@
   <div class="form-group">
       <div class="form-group">
         <%= f.label :incoming_employee_barcode, "Employee Barcode" %>
-        <%= f.text_field :incoming_employee_barcode, class: "form-control", autofocus: true %>
+        <%= f.text_field :incoming_employee_barcode, class: "form-control", autofocus: true %> 
+        <button type="button" id = "activate_scanner">Activate scanner</button>
       </div>
       <%#= f.association :employee, label_method: lambda { |employee| "#{employee.first_name}  #{employee.last_name}" }, value_method: :barcode, :prompt => 'Choose an employee' %>
       <br>
-      
+
+      <!-- scriptcam insert here -->
+
+      <div style="width:330px;float:left;">
+        <div id="webcam"></div>
+        
+      </div>
+
+      <!-- <div style="width:135px;float:left;">
+        <p><button class="btn btn-small" id="btn1" onclick="$('#code_barcode').attr('value',$.scriptcam.getBarCode());">
+        Decode image
+        </button></p>
+      </div> -->
+          
+      <div style="width:200px;float:left;">
+        <p id="decoded"></p>
+      </div>
+
+      <br>
+
       <h3>Line Items</h3>
         <div id="line_items">
           <%= f.simple_fields_for :line_items do |line_item| %>

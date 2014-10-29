@@ -24,7 +24,8 @@ gem 'acts-as-taggable-on'
 gem 'pg_search'
 gem 'roo'
 gem 'paperclip', '~> 4.2'
-gem "cocoon"
+gem 'cocoon'
+gem 'scriptcam-rails'
 
 
 group :development, :test do 

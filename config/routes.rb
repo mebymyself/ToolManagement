@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   constraints(SubdomainPresent) do 
   	root 'issuances#index', as: :subdomain_root
   	devise_for :users
-  	resources :issuances
+  	resources :issuances 
   	resources :employees
     resources :tools
     get 'tags/:tag', to: 'tools#index', as: :tag
