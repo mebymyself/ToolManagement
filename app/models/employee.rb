@@ -12,7 +12,7 @@ class Employee < ActiveRecord::Base
     CSV.foreach(file.path, headers: true) do |row|
       employee = Employee.find_or_create_by(:barcode => row["barcode"])
       row.to_hash.each do |key, value|
-        if employee.has_attributes?(key)
+        if employee.has_attribute?(key)
           employee.send("#{key}=", value)
         end
       end
