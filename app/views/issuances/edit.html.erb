@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <%= f.label :incoming_tool_barcode, "Tool Barcode" %>
-      <%= f.text_field :incoming_tool_barcode, class: "form-control", value: @issuance.tool_barcode, :placeholder => "Scan Tool Barcode" %>
+      <%= f.text_field :incoming_tool_barcode, class: "form-control", value: @line_item.tool.barcode, :placeholder => "Scan Tool Barcode" %>
     </div>
     <div class="form-group">
       <%= f.label :quantity %>
@@ -40,8 +40,8 @@
       <%= f.date_field :due_date, class: "form-control" %>
     </div>
     <div>
-      <%= f.label :returned_on, "Returned On" %>
-      <%= f.date_field :returned_on, class: "form-control" %>
+      <%= f.label :return_date, "Returned On" %>
+      <%= f.date_field :return_date, class: "form-control" %>
     </div><br>
     
     <%= f.submit "submit", class: "btn btn-primary" %>

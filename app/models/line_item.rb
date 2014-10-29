@@ -5,8 +5,8 @@ class LineItem < ActiveRecord::Base
 	belongs_to :issuance
 	belongs_to :tool
 
-	validate :quantity_is_available, unless: :returned_on?
-	validate :quantity_on_hand_cannot_be_less_than_zero, unless: :returned_on?
+	validate :quantity_is_available, unless: :return_date?
+	validate :quantity_on_hand_cannot_be_less_than_zero, unless: :return_date?
 
 	delegate :barcode, :to => :tool, :prefix => true, :allow_nill => true
 

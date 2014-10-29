@@ -26,12 +26,12 @@
 				<%= @issuance.line_items.each do |line_item| %>
 				<tr>
 					<td><%= line_item.created_at %></td>
-					<td><%= line_item.tool_barcode %></td>
+					<td><%= line_item.tool.barcode %></td>
 					<td><%= line_item.tool.description %> </td>
 					<td><%= line_item.quantity %></td>
 					<td><%= line_item.due_date %></td>
 					<td><%= line_item.return_date %></td>
-					<td><%= link_to 'Return Tool', edit_issuance_path(issuance) %></td>
+					<td><%= link_to 'Return Tool', edit_issuance_path(@issuance) %></td>
 				</tr>
 				<% end %>
 			</tbody>
