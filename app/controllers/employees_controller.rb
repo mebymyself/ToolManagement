@@ -21,7 +21,7 @@ class EmployeesController < ApplicationController
 
   def import
     Employee.import(params[:file])
-    redirect_to root_url, notice: "Employees imported."
+    redirect_to settings_path, notice: "Employees imported."
   end
 
   def show

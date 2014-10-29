@@ -14,7 +14,7 @@ class ToolsController < ApplicationController
 
   def import
     Tool.import(params[:file])
-    redirect_to root_url, notice: "Tools imported."
+    redirect_to settings_path, notice: "Tools imported."
   end
 
 
