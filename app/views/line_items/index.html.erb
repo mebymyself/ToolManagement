@@ -1,0 +1,40 @@
+
+<div class="page-header">
+	<h1>Transaction ID: <%= @issuance.id %>  </h1><p><%#= page_entries_info @issuances %></p>
+	<p>Employee Barcode: <%= @issuance.employee_barcode %></p>
+	<p>Issuance Date: <%= @issuance.created_at %></p>
+</div>
+
+<div class="row">
+	<div class=".col-xs-12 .col-md-8">
+		<table class="table table-hover info-list">
+			<thead>
+					<th>Tool barcode</th>
+					<th>Tool description</th>
+					<th>Quantity checked out</th>
+					<th>Due Date</th>
+					<th>Returned On</th>
+					<th colspan="2"></th>
+			</thead>
+
+			<tbody>
+				<% @issuance.line_items.each do |line_item| %>
+					<tr>
+						<td><%= line_item.tool.barcode %></td>
+						<td><%= line_item.tool.description %> </td>
+						<td><%= line_item.quantity %></td>
+						<td><%= line_item.due_date %></td>
+						<td><%= line_item.return_date %></td>
+						<td>
+							<%= form_for line_item do |f| %>
+								<%= f.submit "Return tool" %>
+							<% end %>	
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<%= link_to "Back to issuances", issuances_path %>

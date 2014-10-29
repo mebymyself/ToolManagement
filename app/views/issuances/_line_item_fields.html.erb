@@ -1,0 +1,31 @@
+<div class="nested-fields line_item_fields">
+  <div class="form-group">
+    <%= f.label :incoming_tool_barcode, "Tool Barcode", :id => "tool_barcode" %>
+    <%= f.text_field :incoming_tool_barcode, class: "form-control" %>
+    <button type="button" id = "activate_scanner_tool">Activate scanner</button>
+  </div>
+
+
+  <div id = "webcam_placeholder" style="width:330px;float:left;">
+    <div id="webcam_tool"></div>
+    
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :due_date %><br>
+    <%= f.date_field :due_date, class: "form-control" %>
+  </div>
+  
+  <%= link_to_remove_association "remove line item", f %>
+</div>
+
+
+
+
+
+    

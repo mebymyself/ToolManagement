@@ -3,9 +3,9 @@
 	<div class="col-md-4">
 		<p><%= image_tag @employee.avatar.url(:medium) %></p>
 		<%= link_to "Back to Employees", employees_path %>
-  </div>
+	</div>
 
-  <div class="col-md-1"></div>
+	<div class="col-md-1"></div>
 
 	<div class="col-md-7">
 		
@@ -15,7 +15,7 @@
 		<strong>Last Name:</strong>
 		<p><%= @employee.last_name %></p>
 		<strong>Barcode ID:</strong>
-		<p><%= @employee.employee_barcode %></p>
+		<p><%= @employee.barcode %></p>
 	</div>
 
 </div>

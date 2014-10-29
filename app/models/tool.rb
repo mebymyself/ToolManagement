@@ -1,5 +1,6 @@
 class Tool < ActiveRecord::Base
-	has_many :issuances
+	has_many :line_items
+  accepts_nested_attributes_for :line_items,  :reject_if => :all_blank, :allow_destroy => true
 
   acts_as_taggable
 
@@ -9,8 +10,8 @@ class Tool < ActiveRecord::Base
   validates :quantity, :presence => true
 
   def quantity_on_hand
-    outstanding_issuances = issuances.where("returned_on is null")
-    issuance_total = outstanding_issuances.map{ |issuance| issuance.quantity }.sum
+    outstanding_line_items = line_items.where("return_date is null")
+    issuance_total = outstanding_line_items.map{ |line_item| line_item.quantity }.sum
     (quantity || 0) - (issuance_total || 0)
   end
 

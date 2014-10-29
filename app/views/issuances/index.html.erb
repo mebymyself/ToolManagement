@@ -7,7 +7,6 @@
 <div>
   <p class="pull-right">
     <%= link_to 'Issue Tool', new_issuance_path, class: "btn btn-primary btn-sm" %> 
-    <%#= link_to 'Tool Return', new_issuance_path, class: "btn btn-default btn-sm" %>
   </p>
 </div>
     
@@ -19,29 +18,20 @@
             <th></th>
             <th>No</th>
              <th>Employee</th>
-             <th>Tool Barcode</th>
              <th>Issued On</th>
-             <th>Due Date</th>
-             <th>Returned On</th>
-             <th>Quantity</th>
              <th colspan="2"></th>
             </tr>
           </thead>
 
           <tbody>
             <% @issuances.each do |issuance| %>
-              <tr>
-                <td></td>
-              	<td><%= issuance.id %></td>
-                <td><%= issuance.employee_barcode %></td>
-                <td><%= issuance.tool_barcode %></td>
-                <td><%= issuance.issued_on %></td>
-                <td><%= issuance.due_date %></td>
-                <td><%= issuance.returned_on %></td>
-                <td><%= issuance.quantity %></td>
-                <td><%= link_to 'Show', issuance %></td>
-                <td><%= link_to 'Return Tool', edit_issuance_path(issuance) %></td>
-              </tr>
+                <tr>
+                  <td></td>
+                	<td><%= issuance.id %></td>
+                  <td><%= issuance.employee.first_name %> <%= issuance.employee.last_name %></td>
+                  <td><%= issuance.created_at %></td>
+                  <td><%= link_to 'Show', issuance_line_items_path(issuance) %></td>
+                </tr>
             <% end %>
           </tbody>
         </table>
