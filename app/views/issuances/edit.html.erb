@@ -28,9 +28,6 @@
           <div id="line_items">
             <%= f.simple_fields_for :line_items do |line_item| %>
               <div class="nested-fields line_item_fields">
-                <div class="form-group">
-                  <%#= f.association :tool, label_method: lambda { |tool| "#{tool.barcode}  #{tool.description}" }, value_method: :barcode %>
-                </div>
                 
                 <div class="form-group">
                   <%= f.label :quantity %>

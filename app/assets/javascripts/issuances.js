@@ -13,7 +13,7 @@ ready = function() {
 		var refreshScanner = setInterval(function(){
 			var decodeValue = $.scriptcam.getBarCode();
 			console.log(decodeValue);
-			 if(!!decodeValue) {
+			if(!!decodeValue) {
 				clearInterval(refreshScanner);
 				$('#issuance_incoming_employee_barcode').attr('value', decodeValue);
 				playasound();
@@ -39,7 +39,7 @@ ready = function() {
 		var refreshScanner = setInterval(function(){
 			var decodeValue = $.scriptcam.getBarCode();
 			console.log(decodeValue);
-			 if(!!decodeValue) {
+			if(!!decodeValue) {
 				clearInterval(refreshScanner);
 				$("#" + id).attr('value', decodeValue);
 				playasound();
@@ -55,21 +55,21 @@ $(document).on('page:load', ready);
 
 
 
-	function playasound() {
-		$.scriptcam.playMP3("/assets/ding.mp3");
-	}					
-	
-	function onError(errorId,errorMsg) {
-		alert(errorMsg);
-	}
+function playasound() {
+	$.scriptcam.playMP3("/assets/ding.mp3");
+}					
 
-	function changeCamera() {
-		$.scriptcam.changeCamera($('#cameraNames').val());
-	}
+function onError(errorId,errorMsg) {
+	alert(errorMsg);
+}
 
-	function onWebcamReady(cameraNames,camera,microphoneNames,microphone,volume) {
-		$.each(cameraNames, function(index, text) {
-			$('#cameraNames').append( $('<option></option>').val(index).html(text) )
-		}); 
-		$('#cameraNames').val(camera);
-	}
+function changeCamera() {
+	$.scriptcam.changeCamera($('#cameraNames').val());
+}
+
+function onWebcamReady(cameraNames,camera,microphoneNames,microphone,volume) {
+	$.each(cameraNames, function(index, text) {
+		$('#cameraNames').append( $('<option></option>').val(index).html(text) )
+	}); 
+	$('#cameraNames').val(camera);
+}
