@@ -4,7 +4,7 @@
 <p class="pull-right"><%= link_to 'Add Tool', new_tool_path, class: "btn btn-primary btn-sm" %></p>
   <div class="row">
     <div class="col-sm-12">
-      <table class="table table-hover info-list">
+      <table id="tool-table" class="table table-hover info-list">
         <thead>
           <tr>
             <th>Image</th>
@@ -13,7 +13,8 @@
             <th>Description</th>
             <th>Quantity</th>
             <th>On Hand</th>
-            <th colspan="3"></th>
+            <th class="no-sort"></th>
+            <th class="no-sort"></th>
           </tr>
         </thead>
 
@@ -28,8 +29,6 @@
               <td><%= tool.quantity_on_hand %></td>
               <td><%= link_to 'Show', tool %></td>
               <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
-              <td><%= link_to 'Destroy', tool, class: "label label-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
             </tr>
           <% end %>
         </tbody>

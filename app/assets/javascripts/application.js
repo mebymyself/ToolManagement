@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require swfobject
 //= require scriptcam
+//= require dataTables/jquery.dataTables
 //= require bootstrap-sprockets
 //= require_tree .
 //= require cocoon
