@@ -27,7 +27,7 @@
 						<td><%= line_item.return_date %></td>
 						<td>
 							<%= form_for edit_line_item_path(line_item) do |f| %>
-								<%= f.submit "Return tool" %>
+								<%= f.submit "Return tool", class: "label label-success" %>
 							<% end %>	
 						</td>
 					</tr>

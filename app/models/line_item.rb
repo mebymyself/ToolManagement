@@ -26,7 +26,7 @@ class LineItem < ActiveRecord::Base
 	end
 
 	def quantity_is_available
-		if quantity >= tool.quantity
+		if quantity > tool.quantity
 			errors.add(:quantity, " available: #{tool.quantity}")
 		end 
 	end
