@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   	root 'issuances#index', as: :subdomain_root
   	devise_for :users
   	
+    resources :search
     resources :settings, only: [:index] 
   	resources :issuances do
       resources :line_items, :shallow => true

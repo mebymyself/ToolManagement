@@ -1,4 +1,7 @@
 class LineItem < ActiveRecord::Base
+	include PgSearch 
+	  pg_search_scope :search_including_tags,
+      :against => [:issuance_id, :tool_id, :due_date, :return_date]
 
 	attr_accessor :incoming_tool_barcode
 	

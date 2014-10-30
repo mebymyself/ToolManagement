@@ -1,4 +1,7 @@
 class Employee < ActiveRecord::Base
+  include PgSearch 
+    pg_search_scope :search_including_tags, 
+    :against => [:first_name, :last_name, :barcode]
 
 	belongs_to :account
 	has_many :issuances

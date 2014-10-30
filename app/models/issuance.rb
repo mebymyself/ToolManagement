@@ -1,4 +1,7 @@
 class Issuance < ActiveRecord::Base
+  include PgSearch 
+    pg_search_scope :search_including_tags,
+    :against => [:employee_id] 
 
   attr_accessor :incoming_employee_barcode
 

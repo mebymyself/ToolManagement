@@ -1,0 +1,136 @@
+<div style="padding-top: 100px">
+
+  <% unless @employees.blank? %>
+    <h2>Employees Found:</h2>
+     <div class="row">
+        <div class="col-sm-12">
+          <table class="table table-hover info-list">
+            <thead>
+              <tr>
+              	<th>First Name</th>
+                <th>Last Name</th>
+                <th>Barcode ID</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @employees.each do |employee| %>
+                <tr>
+                  <td><%= employee.first_name %></td>
+                  <td><%= employee.last_name %></td>
+                  <td><%= employee.barcode %></td>
+                  <td><%= link_to 'Show', employee %></td>
+                  <td><%= link_to 'Edit', edit_employee_path(employee) %>
+                  </td>
+                  <td><%= link_to 'Destroy', employee, class: "label label-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div></br>
+  <% end %>
+
+
+
+  <% unless @tools.blank? %>
+    <h2>Tools Found:</h2>
+       <div class="row">
+          <div class="col-sm-12">
+            <table class="table table-hover info-list">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Tags</th>
+                  <th>Barcode ID</th>
+                  <th>Description</th>
+                  <th>Quantity</th>
+                  <th>On Hand</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @tools.each do |tool| %>
+                  <tr>
+                    <td><%= image_tag tool.image.url(:thumb) %></td>
+                    <td><%= raw tool.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></td>
+                    <td><%= tool.barcode %></td>
+                    <td><%= tool.description %></td>
+                    <td><%= tool.quantity %></td>
+                    <td><%= tool.quantity_on_hand %></td>
+                    <td><%= link_to 'Show', tool %></td>
+                    <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
+                    <td><%= link_to 'Destroy', tool, class: "label label-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  <% end %>
+
+  <% unless @issuances.blank? %>
+    <h2>Issuances Found:</h2>
+       <div class="row">
+          <div class="col-sm-12">
+            <table class="table table-hover info-list">
+              <thead>
+                <tr>
+                 <th>Transaction No</th>
+                 <th>Employee Name</th>
+                 <th>Issued On</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @issuances.each do |issuance| %>
+                  <tr>
+                  <td><%= issuance.id %></td>
+                  <td><%= issuance.employee.first_name %></td>
+                  <td><%= issuance.created_at %></td>
+                  <td><%= link_to 'Show', issuance %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  <% end %>
+
+
+
+   <% unless @line_items.blank? %>
+    <h2>Line Items Found:</h2>
+       <div class="row">
+          <div class="col-sm-12">
+            <table class="table table-hover info-list">
+              <thead>
+                <tr>
+                  <th>Tool ID</th>
+                  <th>Issuance ID</th>
+                  <th>Due Date</th>
+                  <th>Return Date</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @line_items.each do |line_item| %>
+                  <tr>
+                  <td><%= line_item.tool_id %></td>
+                  <td><%= line_item.issuance_id %></td>
+                  <td><%= line_item.due_date %></td>
+                  <td><%= line_item.return_date %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  <% end %>
+
+</div>

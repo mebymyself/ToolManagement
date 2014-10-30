@@ -5,7 +5,7 @@
         <div class="form-group">
           <%= f.label :incoming_tool_barcode, "Tool Barcode", :id => "tool_barcode" %>
           <%= f.text_field :incoming_tool_barcode, class: "form-control" %><br/>
-          <button type="button" id = "activate_scanner_tool", data-toggle="modal" data-target="#toolModal" class="btn btn-default btn-sm">Scan</button>
+          <button type="button" class="activate_scanner_tool", data-toggle="modal" data-target="#toolModal" class="btn btn-default btn-sm">Scan</button>
         </div>
       </div>
       
@@ -35,7 +35,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title">Modal title</h4>
+          <h4 class="modal-title">Scanning tool barcode...</h4>
         </div>
         <div class="modal-body">
           <div id ="webcam_tool_placeholder" style="width:330px;float:left;">
