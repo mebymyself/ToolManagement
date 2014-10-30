@@ -1,4 +1,9 @@
 class Tool < ActiveRecord::Base
+  include PgSearch
+    pg_search_scope :search_including_tags, 
+    :against => [:description, :barcode],
+    :associated_against => {:tags => [:name] } 
+
 	has_many :line_items
   accepts_nested_attributes_for :line_items,  :reject_if => :all_blank, :allow_destroy => true
 
