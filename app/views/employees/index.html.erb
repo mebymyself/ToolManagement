@@ -8,10 +8,11 @@
           <thead>
             <tr>
               <th>No.</th>
+              <th></th>
             	<th>First Name</th>
               <th>Last Name</th>
               <th>Barcode</th>
-              <th colspan="3"></th>
+              <th colspan="2"></th>
             </tr>
           </thead>
 
@@ -19,13 +20,12 @@
             <% @employees.each do |employee| %>
               <tr>
                 <td><%= employee.id %></td>
+                <td><%= image_tag employee.avatar.url(:thumb) %></td>
                 <td><%= employee.first_name %></td>
                 <td><%= employee.last_name %></td>
                 <td><%= employee.barcode %></td>
                 <td><%= link_to 'Show', employee %></td>
                 <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-                <td><%= link_to 'Destroy', employee, class: "label label-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
-                </td>
               </tr>
             <% end %>
           </tbody>

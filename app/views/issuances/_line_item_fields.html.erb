@@ -1,31 +1,59 @@
 <div class="nested-fields line_item_fields">
-  <div class="form-group">
-    <%= f.label :incoming_tool_barcode, "Tool Barcode", :id => "tool_barcode" %>
-    <%= f.text_field :incoming_tool_barcode, class: "form-control" %>
-    <button type="button" id = "activate_scanner_tool">Activate scanner</button>
-  </div>
+  <div class="well">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :incoming_tool_barcode, "Tool Barcode", :id => "tool_barcode" %>
+          <%= f.text_field :incoming_tool_barcode, class: "form-control" %><br/>
+          <%#= link_to "Scan", "#myModal", "data-toggle" => "modal", class: "btn btn-default", id: "activate_scanner_tool" %>
+          <button type="button" id = "activate_scanner_tool", data-toggle="modal" data-target="#toolModal" class="btn btn-default btn-sm">Scan</button>
+        </div>
+      </div>
+  <!-- 
+      <div id = "webcam_placeholder" style="width:330px;float:left;">
+        <div id="webcam_tool"></div>
+      </div> -->
+      
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label :quantity %>
+          <%= f.text_field :quantity, class: "form-control" %>
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= f.label :due_date %><br>
+          <%= f.date_field :due_date, class: "form-control" %>
+        </div>
+      </div><br/>
+
+      <div class="col-md-3">
+        <%= link_to_remove_association "remove line item", f, class: "btn btn-danger btn-lg" %>
+      </div>
+    </div><!-- end of row -->
+  </div><!-- end of well -->
 
 
-  <div id = "webcam_placeholder" style="width:330px;float:left;">
-    <div id="webcam_tool"></div>
-    
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :quantity %>
-    <%= f.text_field :quantity, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :due_date %><br>
-    <%= f.date_field :due_date, class: "form-control" %>
-  </div>
-  
-  <%= link_to_remove_association "remove line item", f %>
-</div>
+<div class="modal fade" id="toolModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <div id ="webcam_tool_placeholder" style="width:330px;float:left;">
+            <div id="webcam_tool"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
 
 
 
+</div><!-- end of nested fields line item fields -->
 
-
-    
