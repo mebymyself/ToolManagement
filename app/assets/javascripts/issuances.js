@@ -23,21 +23,18 @@ ready = function() {
 
 		var refreshScanner = setInterval(function(){
 			var decodeValue = $.scriptcam.getBarCode();
-			console.log(decodeValue);
 			if(!!decodeValue) {
 				clearInterval(refreshScanner);
 				$('#issuance_incoming_employee_barcode').attr('value', decodeValue);
-				playasound();
 				$('#webcam_employee').remove();
 				$('#webcam_employee_placeholder').append("<div id=\"webcam_employee\"></div>");
-				alert("Scan success!");
+				$('#myModal').modal('hide');
 			}
 		}, 1000);
 	});
 
 	$('.activate_scanner_tool').click(
 		function(){
-		alert('loading camera');
 		var id = $('#tool_barcode').attr('for');
 		console.log(id)
 		// $('#webcam_tool').attr('id', 'webcam_tool' + id)
@@ -53,14 +50,12 @@ ready = function() {
 
 			var refreshScanner = setInterval(function(){
 				var decodeValue = $.scriptcam.getBarCode();
-				console.log(decodeValue);
 				if(!!decodeValue) {
 					clearInterval(refreshScanner);
 					$("#" + id).attr('value', decodeValue);
-					playasound();
 					$("#webcam_tool").remove();
 					$('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
-					alert("Scan success!");
+					$('#toolModal').modal('hide');
 				}
 			}, 1000);
 		}
@@ -88,15 +83,13 @@ ready = function() {
 
 				var refreshScanner = setInterval(function(){
 					var decodeValue = $.scriptcam.getBarCode();
-					console.log(decodeValue);
 					if(!!decodeValue) {
 						clearInterval(refreshScanner);
 						$("#" + id).attr('value', decodeValue);
-						playasound();
 						$("#webcam_tool").remove();
 						$('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
 						$('#tool_barcode').attr('id', '#tool_barcode'+id)
-						alert("Scan success!");
+						$('#toolModal').modal('hide');
 					}
 				}, 1000);
 			}
@@ -107,11 +100,7 @@ ready = function() {
 $(document).ready(ready);
 $(document).on('page:load', ready);
 
-
-
-function playasound() {
-	$.scriptcam.playMP3("/assets/ding.mp3");
-}					
+					
 
 function onError(errorId,errorMsg) {
 	alert(errorMsg);
