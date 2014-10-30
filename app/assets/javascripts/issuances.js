@@ -13,8 +13,8 @@ ready = function() {
 	$('#activate_scanner').click(function(){
 		$("#webcam_employee").scriptcam({
 			path: '/assets/',
-			width: 320,
-			height: 240,
+			width: 570,
+			height: 380,
 			onError:onError,
 			cornerRadius:0,
 			onWebcamReady:onWebcamReady,
@@ -30,7 +30,7 @@ ready = function() {
 				$('#webcam_employee_placeholder').append("<div id=\"webcam_employee\"></div>");
 				$('#myModal').modal('hide');
 			}
-		}, 1000);
+		}, 500);
 	});
 
 	$('.activate_scanner_tool').click(
@@ -41,8 +41,8 @@ ready = function() {
 		// $("#webcam_tool" + id).scriptcam({
 			$('#webcam_tool').scriptcam({
 				path: '/assets/',
-				width: 320,
-				height: 240,
+				width: 570,
+				height: 380,
 				onError:onError,
 				cornerRadius:0,
 				onWebcamReady:onWebcamReady,
@@ -57,7 +57,7 @@ ready = function() {
 					$('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
 					$('#toolModal').modal('hide');
 				}
-			}, 1000);
+			}, 500);
 		}
 	);
 
@@ -74,8 +74,8 @@ ready = function() {
 			// $("#webcam_tool" + id).scriptcam({
 				$('#webcam_tool').scriptcam({
 					path: '/assets/',
-					width: 320,
-					height: 240,
+					width: 570,
+					height: 380,
 					onError:onError,
 					cornerRadius:0,
 					onWebcamReady:onWebcamReady,
@@ -91,7 +91,7 @@ ready = function() {
 						$('#tool_barcode').attr('id', '#tool_barcode'+id)
 						$('#toolModal').modal('hide');
 					}
-				}, 1000);
+				}, 500);
 			}
 		);
 	});
