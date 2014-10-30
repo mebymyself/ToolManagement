@@ -1,8 +1,8 @@
 var ready;
 ready = function() {  
-	$('#tool-table').dataTable({
+	$('#employee-table').dataTable({
 		"columnDefs": [{
-			"targets": [1,7,8],
+			"targets": [4, 5],
 			"orderable": false
 		}]
 	});
