@@ -18,6 +18,12 @@ class IssuancesController < ApplicationController
     end
   end
 
+  def issuance_modal
+    respond_to do |format|               
+      format.js
+    end        
+  end 
+
 	def show
   	@issuance = Issuance.find(params[:id])
   end
