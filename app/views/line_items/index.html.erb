@@ -1,20 +1,27 @@
 
 <div class="page-header">
-	<h1>Transaction ID: <%= @issuance.id %>  </h1><p><%#= page_entries_info @issuances %></p>
-	<p>Employee Barcode: <%= @issuance.employee_barcode %></p>
-	<p>Issuance Date: <%= @issuance.created_at %></p>
-</div>
+	<div class="row">
+		<div class="col-md-10">
+			<h2>TRANSACTION ID: <%= @issuance.id %></h2>
+			<p>Employee Barcode: <%= @issuance.employee_barcode %></p>
+			<p>Issuance Date: <%= @issuance.created_at %></p>
+		</div><br><br><br><br>
+		<div class="col-sm-2">
+			<%= link_to "Back to issuances", issuances_path, class: "btn btn-primary" %>
+		</div>
+	</div>
+</div><br/>
 
 <div class="row">
-	<div class=".col-xs-12 .col-md-8">
+	<div class="col-md-12">
 		<table class="table table-hover info-list">
 			<thead>
-					<th>Tool barcode</th>
-					<th>Tool description</th>
-					<th>Quantity checked out</th>
+					<th>Tool Barcode</th>
+					<th>Tool Description</th>
+					<th>Qty Out</th>
 					<th>Due Date</th>
 					<th>Returned On</th>
-					<th colspan="2"></th>
+					<th></th>
 			</thead>
 
 			<tbody>
@@ -27,7 +34,7 @@
 						<td><%= line_item.return_date %></td>
 						<td>
 							<%= form_for line_item do |f| %>
-								<%= f.submit "Return tool" %>
+								<%= f.submit "Return tool", class: "btn btn-default" %>
 							<% end %>	
 						</td>
 					</tr>
@@ -36,5 +43,3 @@
 		</table>
 	</div>
 </div>
-
-<%= link_to "Back to issuances", issuances_path %>

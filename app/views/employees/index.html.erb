@@ -1,10 +1,14 @@
 <div class="page-header">
-  <h1>Employees</h1><br><%#= page_entries_info @employees %>
-</div>
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Employees</h1>
+    </div><br>
+    <div class="col-sm-2">
+      <%= link_to 'Add Employee', new_employee_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div><br>
 
-<p class="pull-right">
-  <%= link_to 'Add Employee', new_employee_path, class: "btn btn-primary btn-sm" %>
-</p>
 
 <div class="row"> 
   <div class="col-sm-12">

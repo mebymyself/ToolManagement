@@ -1,15 +1,11 @@
 <div class="container-fliud">
-
+	<div class="row">
 	<div class="col-md-4">
-		<p><%= image_tag @employee.avatar.url(:medium) %></p>
-		<%= link_to "Back to Employees", employees_path %>
+		<%= image_tag @employee.avatar.url(:medium) %>
 	</div>
 
-	<div class="col-md-1"></div>
-
-	<div class="col-md-7">
-		
-		<h1><%= @employee.first_name %> <%= @employee.last_name %></h1></br>
+	<div class="col-md-8">
+	<h1><%= @employee.first_name %> <%= @employee.last_name %></h1>
 		<strong>First Name:</strong>
 		<p><%= @employee.first_name %></p>
 		<strong>Last Name:</strong>
@@ -17,7 +13,10 @@
 		<strong>Barcode ID:</strong>
 		<p><%= @employee.barcode %></p>
 	</div>
-
+	<%= link_to "Back to Employees", employees_path, class: "btn btn-default" %> <%= link_to "Edit", edit_employee_path(@employee), class: "btn btn-primary" %>
+	</div>
 </div>
-<%= link_to "Back to Employees", employees_path %>
-<%= link_to "Edit", edit_employee_path(@employee) %>
+
+
+
+

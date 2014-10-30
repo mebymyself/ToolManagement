@@ -1,15 +1,16 @@
-<!-- <div class="well">Your Transactions</div> -->
-
 <div class="page-header">
-  <h1>Transactions </h1>
-</div>
-
-<p class="pull-right">
-  <%= link_to 'Issue Tool', new_issuance_path, class: "btn btn-primary btn-sm" %> 
-</p>
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Transactions </h1>
+    </div><br>
+    <div class="col-md-2">
+      <%= link_to 'Issue a Tool', new_issuance_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div><br>
     
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-md-12">
     <table id="issuance-table" class="table table-hover info-list">
       <thead>
         <tr>

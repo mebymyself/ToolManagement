@@ -19,7 +19,6 @@
         <div class="form-group">
           <%= f.label :incoming_employee_barcode, "Employee Barcode" %>
           <%= f.text_field :incoming_employee_barcode, class: "form-control", autofocus: true %><br/>
-          <%#= link_to "Scan", "#myModal", "data-toggle" => "modal", class: "btn btn-default", id: "activate_scanner_tool" %>
           <button type="button" id = "activate_scanner", data-toggle="modal" data-target="#myModal" class="btn btn-default btn-sm">Scan</button>
         </div>
       </div>
@@ -37,7 +36,6 @@
             <div id="webcam_employee"></div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
@@ -61,6 +59,7 @@
       </div><br>
       <div>
         <%= f.submit "Submit", class: "btn btn-primary" %>
+        <%= link_to "Cancel", issuances_path, class: "btn btn-default" %>
       </div>
 
   </div>

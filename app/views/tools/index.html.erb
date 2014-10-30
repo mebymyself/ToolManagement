@@ -1,17 +1,21 @@
 <div class="page-header">
-  <h1>Tools</h1><p><%#= page_entries_info @tools %></p>
-</div>
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Tools</h1>
+    </div><br>
+    <div class="col-sm-2">
+      <%= link_to 'Add New Tool', new_tool_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div><br>
 
-<p class="pull-right">
-  <%= link_to 'Add Tool', new_tool_path, class: "btn btn-primary btn-sm" %>
-</p>
 
 <div class="row">
   <div class="col-sm-12">
     <table id="tool-table" class="table table-hover info-list">
       <thead>
         <tr>
-          <th>Id</th>
+          <th></th>
           <th>Image</th>
           <th>Tags</th>
           <th>Barcode ID</th>
@@ -26,7 +30,7 @@
       <tbody>
         <% @tools.each do |tool| %>
           <tr>
-            <td><%= tool.id %></td>
+            <td><%#= tool.id %></td>
             <td><%= image_tag tool.image.url(:thumb) %></td>
             <td><%= raw tool.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></td>
             <td><%= tool.barcode %></td>

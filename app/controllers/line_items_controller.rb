@@ -8,6 +8,6 @@ class LineItemsController < ApplicationController
 		@line_item = LineItem.find(params[:id])
 		@line_item.return_date = Time.now
 		@line_item.save
-		redirect_to issuances_path
+		redirect_to :back
 	end
 end

@@ -27,7 +27,7 @@
 						<td><%= line_item.return_date %></td>
 						<td>
 							<%= form_for edit_line_item_path(line_item) do |f| %>
-								<%= f.submit "Return tool", class: "label label-success" %>
+								<%= f.submit "Return tool", redirect_to :back, class: "label label-success" %>
 							<% end %>	
 						</td>
 					</tr>
@@ -37,4 +37,4 @@
 	</div>
 </div>
 
-<%= link_to "Back to issuances", issuances_path %>
+<%= link_to "Back to issuances", issuances_path, class: "btn btn-primary" %>

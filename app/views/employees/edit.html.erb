@@ -1,6 +1,42 @@
 <h1>Editing: <%= @employee.first_name %> <%= @employee.last_name %></h1></br>
 
-<%= render "form" %>
 
-<%= link_to 'Destroy', @employee, class: "label label-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="form-container">
+  <%= form_for( @employee, :html => { :multipart => true } ) do |f| %>
+    
+    <% if @employee.errors.any? %>
+      <div id="error_explanation" class="bit-warning">
+        <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+        <ul>
+          <% @employee.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %><!-- /errors -->
+
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: "form-control", autofocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :barcode, "Barcode ID" %>
+      <%= f.text_field :barcode, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :avatar, "Add an Avatar" %>
+      <%= f.file_field :avatar %>
+    </div>          
+    <div class="form-group">
+      <%= f.submit "submit", class: "btn btn-primary" %>
+      <%= link_to 'Delete', @employee, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %><!-- /form_for -->
+</div>
+
 

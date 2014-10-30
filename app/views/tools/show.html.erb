@@ -1,12 +1,22 @@
-<p>Barcode ID: <%= @tool.barcode %> </p>
-<div>
-	<p><strong>Tool Description:</strong></p>
-	<p><%= @tool.description %></p>
-	<p>qty total</p>
-	<p><%= @tool.quantity %></p>
-	<p>qty on hand</p>
-	<p><%= @tool.quantity_on_hand %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @tool.image.url(:medium) %>
+    </div>
+
+    <div class="col-md-8">
+      <h3>BARCODE: <%= @tool.barcode %></h3><br>
+      <p><strong>Description</strong><p>
+        <p><%= @tool.description %></p><br>
+
+      <p><strong>Total Quantity</strong></p>
+        <p><%= @tool.quantity %></p>
+      <p><strong>Quantity On Hand</strong></p>
+        <p><%= @tool.quantity_on_hand %></p><br><br>
+
+      <%= link_to "Back to Tools", tools_path, class: "btn btn-default" %>
+      <%= link_to "Edit", edit_tool_path(@tool), class: "btn btn-primary" %>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Back to Tools", tools_path %>
-<%= link_to "Edit", edit_tool_path(@tool) %>
