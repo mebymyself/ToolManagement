@@ -35,7 +35,9 @@ ready = function() {
 		}, 1000);
 	});
 
-	$('#activate_scanner_tool').click(function(){
+	$('.activate_scanner_tool').click(
+		function(){
+		alert('loading camera');
 		var id = $('#tool_barcode').attr('for');
 		console.log(id)
 		// $('#webcam_tool').attr('id', 'webcam_tool' + id)
@@ -61,10 +63,49 @@ ready = function() {
 					alert("Scan success!");
 				}
 			}, 1000);
-		});
+		}
+	);
+
+	$(document).on('cocoon:before-insert',function(){
+		$('#tool_barcode').attr('id', "nil")
+	});
+
+	$(document).on('cocoon:after-insert',function(){
+		$('.activate_scanner_tool').click(
+			function(){
+			var id = $('#tool_barcode').attr('for');
+			console.log(id)
+			// $('#webcam_tool').attr('id', 'webcam_tool' + id)
+			// $("#webcam_tool" + id).scriptcam({
+				$('#webcam_tool').scriptcam({
+					path: '/assets/',
+					width: 320,
+					height: 240,
+					onError:onError,
+					cornerRadius:0,
+					onWebcamReady:onWebcamReady,
+				});
+
+				var refreshScanner = setInterval(function(){
+					var decodeValue = $.scriptcam.getBarCode();
+					console.log(decodeValue);
+					if(!!decodeValue) {
+						clearInterval(refreshScanner);
+						$("#" + id).attr('value', decodeValue);
+						playasound();
+						$("#webcam_tool").remove();
+						$('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
+						$('#tool_barcode').attr('id', '#tool_barcode'+id)
+						alert("Scan success!");
+					}
+				}, 1000);
+			}
+		);
+	});
+
 }
-$('.line_item_fields').ready(ready);
-$('.line_item_fields').on('page:load', ready);
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 
 
@@ -86,3 +127,4 @@ function onWebcamReady(cameraNames,camera,microphoneNames,microphone,volume) {
 	}); 
 	$('#cameraNames').val(camera);
 }
+
