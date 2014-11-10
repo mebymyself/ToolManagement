@@ -1,5 +1,3 @@
-
-
 #flash_notice {
 	@extend .alert;
 	@extend .alert-success;
@@ -14,3 +12,65 @@
 	@extend .alert;
 	@extend .alert-warning;
 }
+
+
+
+body {
+	background-color: #fff;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, 'Lato', sans-serif;
+	font-weight: 400px;
+	padding-bottom: 40px;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+}
+
+.container {
+	width: 980px;
+}
+
+
+.navbar-default {
+	background-color: #FFF;
+	border-radius: 0px !important;
+}
+
+ul.nav a:hover { 
+	color: #F7CA18 !important; 
+}
+
+#search-size {
+	width: 250px;
+}
+
+.btn {
+	border-radius: 0;
+}
+
+
+// .hero {
+// 	background: url("hero-bg.jpg") no-repeat;
+// 	-webkit-background-size: cover;
+// 	-moz-background-size: cover;
+// 	-o-background-size: cover;
+// 	background-size: cover;
+// 	display: table;
+// 	width: 100%;
+// 	height: 600px;
+// 	margin-top: -20px;
+// }
+
+// .hero-content {
+// 	padding-top: 100px;
+// }
+
+// .jumbotron {
+// 	margin-top: -20px;
+// 	height: 450px;
+// 	background: url("hero-bg.jpg") no-repeat;
+// 	-webkit-background-size: cover;
+// 	-moz-background-size: cover;
+// 	-o-background-size: cover;
+// 	background-size: cover;
+// 	display: table;
+// 	width: 100%;
+// }
