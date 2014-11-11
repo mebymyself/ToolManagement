@@ -10,7 +10,6 @@ class IssuancesController < ApplicationController
 
   def create
   	@issuance = Issuance.new(issuance_params)
-
   	if @issuance.save
   		redirect_to "/issuances"
   	else
