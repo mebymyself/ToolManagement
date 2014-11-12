@@ -1,8 +1,17 @@
 class EmployeesController < ApplicationController
   
   def index
-  	@employees = Employee.all
+  	@employees = if params[:search]
+      Employee.where("(barcode) LIKE (?)", "%#{params[:search]}")
+    else
+      Employee.all
+    end
+
+  respond_to do |format|
+    format.html
+    format.json {render json: @employees}
   end
+end
 
 
   def new

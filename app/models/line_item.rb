@@ -10,6 +10,7 @@ class LineItem < ActiveRecord::Base
 
 	validate :quantity_is_available, unless: :return_date?
 	validate :quantity_on_hand_cannot_be_less_than_zero, unless: :return_date?
+	# validates_uniqueness_of :tool_id, :scope => "issuance_id"
 
 	delegate :barcode, :to => :tool, :prefix => true, :allow_nill => true
 
