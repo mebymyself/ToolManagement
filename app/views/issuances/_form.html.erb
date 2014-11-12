@@ -20,11 +20,8 @@
         <%= f.label :incoming_employee_barcode, "Employee Barcode" %>
         <%= f.text_field :incoming_employee_barcode, class: "form-control", autofocus: true %><br/>
         <button type="button" id = "activate_scanner", data-toggle="modal" data-target="#myModal" class="btn btn-default btn-sm">Scan</button>
-        <%#= form_tag employees_path, method: :get, :id => 'employee-search-form' do%>
-          <%= text_field_tag :employee_search_box, params[:search] %>
           <button type="button" id = "search-employee", data-toggle="modal" data-target="#employeeSearchModal" class="btn btn-default btn-sm">Search</button>
           <div class="employee-search-result"></div>
-        <%# end %>
       </div>
     </div>
   </div> 
