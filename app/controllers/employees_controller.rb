@@ -6,12 +6,12 @@ class EmployeesController < ApplicationController
     else
       Employee.all
     end
-
-  respond_to do |format|
-    format.html
-    format.json {render json: @employees}
+    # The JSON request will return employee attributes and avatar url
+    respond_to do |format|
+      format.html
+      format.json {render json: @employees.to_json(:methods => [:avatar_url])}
+    end
   end
-end
 
 
   def new

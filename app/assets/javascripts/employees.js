@@ -10,19 +10,32 @@ ready = function() {
 $(document).ready(ready);
 $(document).on('page:load', ready);
 
-// Employee lookup
+// Employee lookup, a modal with searched employee will popup
 var ready;
 ready = function() {  
-	$('.employee-search').click(function(){
+	$('#search-employee').click(function(){
 		event.preventDefault();
-		var searchValue = $('#employee_search').val()
+		var searchValue = $('#employee_search_box').val()
 
-		$.get('/employees?search=' + searchValue)
+		$.getJSON('/employees?search=' + searchValue)
 			.done(function(data){
-			console.log(data);
-			$('.employee-search-result').html(data);
+				for(i=0; i < data.length; i++){
+					console.log(data[i].avatar_url);
+					$('#employee_barcode').text(data[i].barcode)
+					$('#employee_pic').attr('src', data[i].avatar_url);
+					$('#employee_first_name').text(data[i].first_name);
+					$('#employee_last_name').text(data[i].last_name);
+					$('#employee_updated_at').text(data[i].updated_at);
+				}
 		})
 	});
+
+	$('.cancel_employee').click(function(){
+		$('#employee_search_box').val("");
+	})
 }
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+// Need clear modal function
+// Need clear text field function

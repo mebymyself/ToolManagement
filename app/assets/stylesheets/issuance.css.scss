@@ -1,3 +1,7 @@
-// Place all the styles related to the issuance controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.modal-body {
+	#employee_pic { float: left;
+					margin-right: 2em;
+					margin-bottom: 1em;
+	}
+	.modal-footer { clear: both; }
+}

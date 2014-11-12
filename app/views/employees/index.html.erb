@@ -10,32 +10,4 @@
 </div><br>
 
 
-<div class="row"> 
-  <div class="col-sm-12">
-    <table id="employee-table" class="table table-hover info-list">
-      <thead>
-        <tr>
-          <th>Id</th>
-        	<th>First Name</th>
-          <th>Last Name</th>
-          <th>Barcode</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @employees.each do |employee| %>
-          <tr>
-            <td><%= employee.id %></td>
-            <td><%= employee.first_name %></td>
-            <td><%= employee.last_name %></td>
-            <td><%= employee.barcode %></td>
-            <td><%= link_to 'Show', employee %></td>
-            <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<%= render 'employees' %>
