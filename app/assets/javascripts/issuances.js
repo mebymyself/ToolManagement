@@ -25,10 +25,12 @@ ready = function() {
 			var decodeValue = $.scriptcam.getBarCode();
 			if(!!decodeValue) {
 				clearInterval(refreshScanner);
-				$('#issuance_incoming_employee_barcode').attr('value', decodeValue);
+				$('#issuance_incoming_employee_barcode').val(decodeValue)
 				$('#webcam_employee').remove();
 				$('#webcam_employee_placeholder').append("<div id=\"webcam_employee\"></div>");
 				$('#myModal').modal('hide');
+				employeeModal();
+				$('#employeeSearchModal').modal('show');
 			}
 		}, 500);
 	});
@@ -48,7 +50,7 @@ ready = function() {
 				onWebcamReady:onWebcamReady,
 			});
 
-			var refreshScanner = setInterval(function(){
+			refreshScanner = setInterval(function(){
 				var decodeValue = $.scriptcam.getBarCode();
 				if(!!decodeValue) {
 					clearInterval(refreshScanner);
@@ -56,7 +58,7 @@ ready = function() {
 					$("#webcam_tool").remove();
 					$('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
 					$('#toolModal').modal('hide');
-				}
+				};
 			}, 500);
 		}
 	);
