@@ -98,6 +98,9 @@ ready = function() {
 		);
 	});
 
+	// Inserting signature-pad
+	$('.sigPad').signaturePad({drawOnly:true});
+
 }
 $(document).ready(ready);
 $(document).on('page:load', ready);
