@@ -1,8 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Reset
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+
 @import "layout";
 @import "signin";
 @import "employees";
 @import "issuance";
+@import "welcome";
 @import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";

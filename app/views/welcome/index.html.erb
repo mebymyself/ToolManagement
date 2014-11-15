@@ -1,33 +1,45 @@
-<div class="col-md-12">
-	<div class="jumbotron">
+  <div class="jumbotron">
     <div class="container">
-      <div class="hero-content">
-    		<h1>Tool Management</h1>
-    		<p>Track your tools and equipment.</p>
-    		<p><%#= link_to "Create Account", new_account_path, class: 'btn btn-primary btn-lg' %></p>
+
+      <%= render 'welcome/nav' %>
+
+      <div class="col-md-10 hero-content">
+        <h1 class="hero-title">Don't be left in the dark.</h1>
+        <h3>Know where your tools and equipment are.</h3>
+      </div>
+      <div class="col-md-3">
+        <p class="button"><%= link_to "Create an Account", new_account_path, class: 'btn btn-block btn-lg btn-ghost' %></p>
       </div>
     </div>
-	</div>
+  </div>
 
   <div class="container">
-    <div class="col-md-4">
-      <h2>Get Control Of Your Inventory</h2>
-      <p>Track and protect your inventory with a secure employee checkout solution.</p>
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Get Control Of Your Inventory</h3>
+        <p>Track and protect your inventory with a secure employee checkout solution.</p>
+      </div>
+
+      <div class="col-md-4">
+        <h3>ToolHero In The Cloud</h3>
+        <p>Manage tool and equipment remotely at any time or day, from anywhere in the world.</p>
+      </div>
+
+      <div class="col-md-4">
+        <h3>Do You Know Where Your Tools Are?</h3>
+        <p>ToolHero will have your tools and supplies when and where you need them.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="container">
+      <div class="row footer-content">
+        <div class="col-md-4">
+          <p></p>
+        </div>
+      </div>
     </div>
 
-
-    <div class="col-md-4">
-      <h2>ToolHero In The Cloud</h2>
-      <p>Manage tool and equipment remotely at any time or day, from anywhere in the world.</p>
-    </div>
-
-    <div class="col-md-4">
-      <h2>Do You Know Where Your Tools Are?</h2>
-      <p>ToolHero will have your tools and supplies when and where you need them.</p>
-    </div>
-  </div><br>
-
-  
-
-
-</div>
+  </footer>

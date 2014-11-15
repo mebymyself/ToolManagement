@@ -2,31 +2,32 @@
 <html>
 
 	<head>
-	  <title>Toolhero</title>
-		  <%= stylesheet_link_tag    'application' %>
-		  <%= javascript_include_tag 'application' %>
-		  <%= csrf_meta_tags %>
+		<title>Toolhero</title>
+		<%= stylesheet_link_tag    'application' %>
+		<%= javascript_include_tag 'application' %>
+		<%= csrf_meta_tags %>
 	</head>
 
 	<body>
 
-		<%= render 'layouts/header' %>
-	
-			<div class="container">
-				<% flash.each do |name, msg| %>
-					<%= content_tag :div, msg, :id => "flash_#{name}" %>
-				<% end %>
-			</div>
-
-			<% if user_signed_in? %>
-				<div class="container">
-					<%= yield %>
-				</div>
-			<% else %>
-				<div class="row">
-					<%= yield %>
-				</div>
+		<% if user_signed_in? %>
+			<%= render 'layouts/header' %>
+		<% end %>
+		
+		<div class="container">
+			<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}" %>
 			<% end %>
+		</div>
+
+		<% if user_signed_in? %>
+			<div class="container">
+				<%= yield %>
+			</div>
+		<% else %>
+			<%= yield %>
+		<% end %>
+
 
 	</body>
 

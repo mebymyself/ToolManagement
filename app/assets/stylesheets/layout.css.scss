@@ -19,9 +19,10 @@ body {
 	background-color: #fff;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, 'Lato', sans-serif;
 	font-weight: 400px;
-	padding-bottom: 40px;
+	// padding-bottom: 40px;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
+	overflow-y: scroll;
 }
 
 .container {
@@ -47,30 +48,30 @@ ul.nav a:hover {
 }
 
 
-// .hero {
-// 	background: url("hero-bg.jpg") no-repeat;
-// 	-webkit-background-size: cover;
-// 	-moz-background-size: cover;
-// 	-o-background-size: cover;
-// 	background-size: cover;
-// 	display: table;
-// 	width: 100%;
-// 	height: 600px;
-// 	margin-top: -20px;
-// }
+.btn-ghost {
+  -webkit-border-radius: 1;
+  -moz-border-radius: 1;
+  border-radius: 1px;
+  color: #000;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  border: solid #000 2px;
+  text-decoration: none;
+  background: transparent;
+  position: absolute;
+  margin: 20px auto;
+}
 
-// .hero-content {
-// 	padding-top: 100px;
-// }
+.btn-ghost:hover {
+  // text-decoration: none;
+  color: #F7CA18;
+  border: solid #F7CA18 2px;
+}
 
-// .jumbotron {
-// 	margin-top: -20px;
-// 	height: 450px;
-// 	background: url("hero-bg.jpg") no-repeat;
-// 	-webkit-background-size: cover;
-// 	-moz-background-size: cover;
-// 	-o-background-size: cover;
-// 	background-size: cover;
-// 	display: table;
-// 	width: 100%;
-// }
+.sign-up {
+	top: 50px;
+}
+
+.signin {
+	top: 150px
+}
