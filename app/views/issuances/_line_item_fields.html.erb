@@ -1,15 +1,19 @@
 <div class="nested-fields line_item_fields">
   <div class="well">
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-md-4">
         <div class="form-group">
           <%= f.label :incoming_tool_barcode, "Tool Barcode", :id => "tool_barcode" %>
-          <%= f.text_field :incoming_tool_barcode, class: "form-control" %><br/>
-          <button type="button" class="activate_scanner_tool btn btn-default btn-sm", data-toggle="modal" data-target="#toolModal">Scan</button>
-        </div>
+          <div class="input-group input-group-md">
+            <%= f.text_field :incoming_tool_barcode, class: "form-control", autofocus: true %><br/>
+            <span class="input-group-btn">
+              <button type="button" id="search-tool", data-toggle="modal" data-target="#toolSearchModal" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              <button type="button" id="activate_scanner_tool", data-toggle="modal" data-target="#toolModal" class="btn btn-default"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span></button>
+            </span>
+          </div>
       </div>
-      
-      <div class="col-md-3">
+      </div>
+      <div class="col-md-2">
         <div class="form-group">
           <%= f.label :quantity, "Quantity" %>
           <!-- Tool quantity is default to 1 only -->
@@ -19,7 +23,7 @@
       
       <div class="col-md-3">
         <div class="form-group">
-          <%= f.label :due_date %><br>
+          <%= f.label :due_date, :id => 'due_date' %><br>
           <%= f.date_field :due_date, class: "form-control" %>
         </div>
       </div><br/>
@@ -50,6 +54,6 @@
     </div> <!-- end of modal dialog -->
   </div> <!-- end of modal fade -->
       
-
+  <%= render 'tool_search_modal' %>
 </div><!-- end of nested fields line item fields -->
 

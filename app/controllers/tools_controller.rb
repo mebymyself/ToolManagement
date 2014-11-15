@@ -1,14 +1,22 @@
 class ToolsController < ApplicationController
 	
 	def index
-   if params[:tag]
-    @tools = Tool.tagged_with(params[:tag])
-   # elsif 
-   #  @tools = Tool.all.page(params[:page])
-   else
-   	@tools = Tool.all
-  	# @tools = Tool.order('tools.created_at DESC').page(params[:page])
-   end  
+    if params[:search]
+      @tools = Tool.where("(barcode) LIKE (?)", "%#{params[:search]}")
+    elsif params[:tag]
+      @tools = Tool.tagged_with(params[:tag])
+    else
+      @tools = Tool.all
+    end
+
+    # @tools = Tool.all.page(params[:page])
+  	# @tools = Tool.order('tools.created_at DESC').page(params[:page]) 
+
+    # The JSON request will return tool attributes and avatar url
+    respond_to do |format|
+      format.html
+      format.json {render json: @tools.to_json(:methods => [:image_url])}
+    end
   end
 
 

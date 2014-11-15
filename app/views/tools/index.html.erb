@@ -10,40 +10,6 @@
 </div><br>
 
 
-<div class="row">
-  <div class="col-sm-12">
-    <table id="tool-table" class="table table-hover info-list">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Image</th>
-          <th>Tags</th>
-          <th>Barcode ID</th>
-          <th>Description</th>
-          <th>Quantity</th>
-          <th>On Hand</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @tools.each do |tool| %>
-          <tr>
-            <td><%#= tool.id %></td>
-            <td><%= image_tag tool.image.url(:thumb) %></td>
-            <td><%= raw tool.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></td>
-            <td><%= tool.barcode %></td>
-            <td><%= tool.description %></td>
-            <td><%= tool.quantity %></td>
-            <td><%= tool.quantity_on_hand %></td>
-            <td><%= link_to 'Show', tool %></td>
-            <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<%= render "tools" %>
 
 
