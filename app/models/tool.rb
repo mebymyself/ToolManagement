@@ -33,7 +33,7 @@ class Tool < ActiveRecord::Base
     end 
 
   # This method is defined so that the view(JS) can access to an actual url without depending on paperclips' helper method
-  def avatar_url
-    avatar.url(:medium)
+  def image_url
+    image.url(:medium)
   end  
 end

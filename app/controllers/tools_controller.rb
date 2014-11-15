@@ -15,7 +15,7 @@ class ToolsController < ApplicationController
     # The JSON request will return tool attributes and avatar url
     respond_to do |format|
       format.html
-      format.json {render json: @tools.to_json(:methods => [:avatar_url])}
+      format.json {render json: @tools.to_json(:methods => [:image_url])}
     end
   end
 
