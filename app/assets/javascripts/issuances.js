@@ -30,8 +30,8 @@ ready = function() {
 			if(!!decodeValue) {
 				clearInterval(refreshScanner);
 				$('#issuance_incoming_employee_barcode').val(decodeValue)
-				$('#webcam_employee').remove();
-				$('#webcam_employee_placeholder').append("<div id=\"webcam_employee\"></div>");
+				// $('#webcam_employee').remove();
+				// $('#webcam_employee_placeholder').append("<div id=\"webcam_employee\"></div>");
 				$('#myModal').modal('hide');
 				employeeModal();
 				$('#employeeSearchModal').modal('show');
@@ -84,7 +84,7 @@ ready = function() {
 		toolInputId = $('#tool_barcode').attr('for');
 		dueDateInputId = $('#due_date').attr('for');
 		
-		$('.activate_scanner_tool').click(
+		$('#activate_scanner_tool').click(
 			function(){
 			// $('#webcam_tool').attr('id', 'webcam_tool' + id)
 			// $("#webcam_tool" + id).scriptcam({
@@ -101,10 +101,10 @@ ready = function() {
 					var decodeValue = $.scriptcam.getBarCode();
 					if(!!decodeValue) {
 						clearInterval(refreshScanner);
-						$("#" + id).attr('value', decodeValue);
-						$("#webcam_tool").remove();
-						$('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
-						$('#tool_barcode').attr('id', '#tool_barcode'+id)
+						$("#" + toolInputId).attr('value', decodeValue);
+						// $("#webcam_tool").remove();
+						// $('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
+						$('#tool_barcode').attr('id', '#tool_barcode' + toolInputId);
 						$('#toolModal').modal('hide');
 					}
 				}, 500);
