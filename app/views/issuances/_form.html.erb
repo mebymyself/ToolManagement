@@ -48,7 +48,8 @@
     <%= link_to_add_association '', f, :line_items, class: "btn btn-default btn-lg btn-block glyphicon glyphicon-plus" %>
   </div><br>
   <div>
-    <%= submit_tag "Procced", :type => "button", :class => "btn btn-primary", data: { disable_with: "Please wait..." } %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%#= submit_tag "Procced", :type => "button", :class => "btn btn-primary", data: { disable_with: "Please wait..." } %>
     <%= link_to "Cancel", issuances_path, class: "btn btn-default" %>
   </div>
 
