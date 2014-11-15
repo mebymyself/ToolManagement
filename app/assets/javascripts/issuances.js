@@ -60,10 +60,77 @@ ready = function() {
 					// $("#webcam_tool").remove();
 					// $('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
 					$('#toolModal').modal('hide');
+					toolModal();
+					$('#toolSearchModal').modal('show');
 				};
 			}, 500);
 		}
 	);
+
+		$('#search-tool').click(function(){
+			event.preventDefault();
+			toolModal();
+		});
+
+		$('.cancel_tool').click(function(){
+			toolSearchReset();
+		})
+
+		$('.invalid_search').click(function(){
+			toolSearchReset();
+		})
+
+		$('#confirm_tool').click(function(){
+			setTimeout(function(){
+				$('#confirm_tool').show();
+				$('.cancel_tool').show();
+				$('.invalid_search').show();
+			}, 500);
+		})
+
+	function toolModal(){
+		var searchValue = $('#' + toolInputId).val()
+		$.getJSON('/tools?search=' + searchValue)
+			.done(function(data){
+				console.log(searchValue);
+				if (data.length !== 1) {
+					$('#tool_barcode_field').text("Record not found");
+					$('#tool_pic').attr('src', "/assets/unavailable.png");
+					$('#tool_description').text("Record not found");
+					$('#tool_quantity').text("Record not found");
+					$('#tool_notes').text("Record not found");
+					$('#tool_updated_at').text("Record not found");	
+					$('#confirm_tool').hide();
+					$('.cancel_tool').hide();
+				} else {
+					// $('#issuance_incoming_tool_barcode').val(data[0].barcode);
+					$('#tool_barcode_field').text(data[0].barcode);
+					$('#tool_pic').attr('src', data[0].image_url);
+					$('#tool_description').text(data[0].description);
+					$('#tool_quantity').text(data[0].quantity_on_hand + "/" + data[0].quantity);
+					$('#tool_notes').text(data[0].notes);
+					$('#tool_updated_at').text(data[0].updated_at);	
+					$('.invalid_search').hide();
+
+				};
+		})
+	}
+
+	function toolSearchReset(){
+		$('#' + toolInputId).attr('value', '');
+		$('#tool_barcode_field').text("")
+		$('#tool_pic').attr('src', "");
+		$('#tool_description').text("");
+		$('#tool_quantity').text("");
+		$('#tool_notes').text("");
+		$('#tool_updated_at').text("");
+		setTimeout(function(){
+			$('#confirm_tool').show();
+			$('.cancel_tool').show();
+			$('.invalid_search').show();
+			
+		}, 500);
+	}
 
 	$(document).on('cocoon:before-insert',function(){
 		$('#' + toolInputId).attr('disabled', 'true');
@@ -104,8 +171,10 @@ ready = function() {
 						$("#" + toolInputId).attr('value', decodeValue);
 						// $("#webcam_tool").remove();
 						// $('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
-						$('#tool_barcode').attr('id', '#tool_barcode' + toolInputId);
 						$('#toolModal').modal('hide');
+						toolModal();
+						$('#toolSearchModal').modal('show');
+						$('#tool_barcode').attr('id', '#tool_barcode' + '-' + toolInputId);
 					}
 				}, 500);
 			}
@@ -133,20 +202,20 @@ ready = function() {
 			})
 
 		function toolModal(){
-			var searchValue = $('#' + $('#tool_barcode').attr('for')).val()
+			var searchValue = $('#' + toolInputId).val()
+			console.log(searchValue);
 			$.getJSON('/tools?search=' + searchValue)
 				.done(function(data){
 					if (data.length !== 1) {
 						$('#tool_barcode_field').text("Record not found");
 						$('#tool_pic').attr('src', "/assets/unavailable.png");
-						$('#tool_discription').text("Record not found");
+						$('#tool_description').text("Record not found");
 						$('#tool_quantity').text("Record not found");
 						$('#tool_notes').text("Record not found");
 						$('#tool_updated_at').text("Record not found");	
 						$('#confirm_tool').hide();
 						$('.cancel_tool').hide();
 					} else {
-						$('#issuance_incoming_tool_barcode').val(data[0].barcode);
 						$('#tool_barcode_field').text(data[0].barcode);
 						$('#tool_pic').attr('src', data[0].image_url);
 						$('#tool_description').text(data[0].description);
@@ -160,7 +229,7 @@ ready = function() {
 		}
 
 		function toolSearchReset(){
-			$('#' + $('#tool_barcode').attr('for')).val("");
+			$('#' + toolInputId).attr('value', '');
 			$('#tool_barcode_field').text("")
 			$('#tool_pic').attr('src', "");
 			$('#tool_description').text("");
