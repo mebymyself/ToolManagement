@@ -1,5 +1,9 @@
 var ready;
 ready = function() {  
+	
+	// Set hooks for tool_barcode input and due_date
+	toolInputId = $('#tool_barcode').attr('for');
+	dueDateInputId = $('#due_date').attr('for');
 
 	// JavaScript for dataTable applied to issuance_index
 	$('#issuance-table').dataTable({
@@ -35,10 +39,8 @@ ready = function() {
 		}, 500);
 	});
 
-	$('.activate_scanner_tool').click(
+	$('#activate_scanner_tool').click(
 		function(){
-		var id = $('#tool_barcode').attr('for');
-		console.log(id)
 		// $('#webcam_tool').attr('id', 'webcam_tool' + id)
 		// $("#webcam_tool" + id).scriptcam({
 			$('#webcam_tool').scriptcam({
@@ -54,9 +56,9 @@ ready = function() {
 				var decodeValue = $.scriptcam.getBarCode();
 				if(!!decodeValue) {
 					clearInterval(refreshScanner);
-					$("#" + id).attr('value', decodeValue);
-					$("#webcam_tool").remove();
-					$('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
+					$("#" + toolInputId).attr('value', decodeValue);
+					// $("#webcam_tool").remove();
+					// $('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
 					$('#toolModal').modal('hide');
 				};
 			}, 500);
@@ -64,14 +66,26 @@ ready = function() {
 	);
 
 	$(document).on('cocoon:before-insert',function(){
-		$('#tool_barcode').attr('id', "nil")
+		$('#' + toolInputId).attr('disabled', 'true');
+		$('#' + dueDateInputId).attr('disabled', 'true');
+		$('#activate_scanner_tool').attr('disabled', true);
+		$('#search-tool').attr('disabled', true);	
+
+		// remove hook from pervious line_item
+		$('#tool_barcode').attr('id', '');
+		$('#due_date').attr('id', '');
+		$('#activate_scanner_tool').attr('id', '');
+		$('#search-tool').attr('id', '');
 	});
 
 	$(document).on('cocoon:after-insert',function(){
+
+		// Set hooks for tool_barcode input and due_date
+		toolInputId = $('#tool_barcode').attr('for');
+		dueDateInputId = $('#due_date').attr('for');
+		
 		$('.activate_scanner_tool').click(
 			function(){
-			var id = $('#tool_barcode').attr('for');
-			console.log(id)
 			// $('#webcam_tool').attr('id', 'webcam_tool' + id)
 			// $("#webcam_tool" + id).scriptcam({
 				$('#webcam_tool').scriptcam({
