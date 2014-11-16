@@ -27,6 +27,8 @@ gem 'paperclip', '~> 4.2'
 gem 'cocoon'
 gem 'scriptcam-rails'
 gem 'jquery-datatables-rails', '~> 3.0.0'
+gem 'signature-pad-rails'
+
 
 
 group :development, :test do 
