@@ -31,12 +31,16 @@ body {
 
 
 .navbar-default {
-	background-color: #FFF;
+	background-color: #fff;
 	border-radius: 0px !important;
 }
 
+ul.nav a {
+	font-weight: 600 !important;
+}
+
 ul.nav a:hover { 
-	color: #F7CA18 !important; 
+	color: #404040 !important; 
 }
 
 #search-size {
@@ -64,8 +68,8 @@ ul.nav a:hover {
 
 .btn-ghost:hover {
   // text-decoration: none;
-  color: #F7CA18;
-  border: solid #F7CA18 2px;
+  color: #DE5842;
+  border: solid #DE5842 2px;
 }
 
 .sign-up {

@@ -34,12 +34,16 @@ p > .button {
 .jumbotron {
 	// margin-top: -20px;
 	height: 600px;
-	// background: url("hero-bg.jpg") no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	display: table;
+	background: url("jumbotron-bg1.png") no-repeat center center;
+	// -webkit-background-size: cover;
+	// -moz-background-size: cover;
+	// -o-background-size: cover;
+	// background-size: cover;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;
+	// display: table;
 	width: 100%;
 }
 
@@ -60,4 +64,10 @@ footer {
 
 .footer-content {
 	padding-top: 40px;
+}
+
+section {
+	margin: 60px auto;
+	padding: 80px;
+
 }

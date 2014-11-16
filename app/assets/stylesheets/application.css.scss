@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "normalize";
 
 // Reset
 @import "bootstrap/normalize";
@@ -11,3 +12,4 @@
 @import "issuance";
 @import "welcome";
 @import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
+@import "dataTables/extras/dataTables.responsive";

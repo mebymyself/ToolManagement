@@ -2,7 +2,8 @@ var ready;
 ready = function() {  
 
 	// JavaScript for dataTable applied to issuance_index
-	$('#issuance-table').dataTable({
+	$('#issuance-table').DataTable ({
+		"responsive": true,
 		"columnDefs": [{
 			"targets": 4,
 			"orderable": false

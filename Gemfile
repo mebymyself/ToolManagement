@@ -26,7 +26,7 @@ gem 'roo'
 gem 'paperclip', '~> 4.2'
 gem 'cocoon'
 gem 'scriptcam-rails'
-gem 'jquery-datatables-rails', '~> 2.2.3'
+gem 'jquery-datatables-rails', '~> 3.0.0'
 
 
 group :development, :test do 
