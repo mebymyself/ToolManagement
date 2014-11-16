@@ -42,8 +42,6 @@ ready = function() {
 
 	$('#activate_scanner_tool').click(
 		function(){
-		// $('#webcam_tool').attr('id', 'webcam_tool' + id)
-		// $("#webcam_tool" + id).scriptcam({
 			$('#webcam_tool').scriptcam({
 				path: '/assets/',
 				width: 570,
@@ -58,8 +56,6 @@ ready = function() {
 				if(!!decodeValue) {
 					clearInterval(refreshScanner);
 					$("#" + toolInputId).attr('value', decodeValue);
-					// $("#webcam_tool").remove();
-					// $('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
 					$('#toolModal').modal('hide');
 					toolModal();
 					$('#toolSearchModal').modal('show');
@@ -105,6 +101,7 @@ ready = function() {
 					$('.cancel_tool').hide();
 				} else {
 					// $('#issuance_incoming_tool_barcode').val(data[0].barcode);
+					$('#' + toolInputId).val(data[0].barcode)
 					$('#tool_barcode_field').text(data[0].barcode);
 					$('#tool_pic').attr('src', data[0].image_url);
 					$('#tool_description').text(data[0].description);
@@ -118,7 +115,7 @@ ready = function() {
 	}
 
 	function toolSearchReset(){
-		$('#' + toolInputId).attr('value', '');
+		$('#' + toolInputId).val('');
 		$('#tool_barcode_field').text("")
 		$('#tool_pic').attr('src', "");
 		$('#tool_description').text("");
@@ -154,8 +151,6 @@ ready = function() {
 		
 		$('#activate_scanner_tool').click(
 			function(){
-			// $('#webcam_tool').attr('id', 'webcam_tool' + id)
-			// $("#webcam_tool" + id).scriptcam({
 				$('#webcam_tool').scriptcam({
 					path: '/assets/',
 					width: 570,
@@ -170,8 +165,6 @@ ready = function() {
 					if(!!decodeValue) {
 						clearInterval(refreshScanner);
 						$("#" + toolInputId).attr('value', decodeValue);
-						// $("#webcam_tool").remove();
-						// $('#webcam_tool_placeholder').append("<div id=\"webcam_tool\"></div>");
 						$('#toolModal').modal('hide');
 						toolModal();
 						$('#toolSearchModal').modal('show');
@@ -217,6 +210,7 @@ ready = function() {
 						$('#confirm_tool').hide();
 						$('.cancel_tool').hide();
 					} else {
+						$('#' + toolInputId).val(data[0].barcode)
 						$('#tool_barcode_field').text(data[0].barcode);
 						$('#tool_pic').attr('src', data[0].image_url);
 						$('#tool_description').text(data[0].description);
@@ -230,7 +224,7 @@ ready = function() {
 		}
 
 		function toolSearchReset(){
-			$('#' + toolInputId).attr('value', '');
+			$('#' + toolInputId).val('');
 			$('#tool_barcode_field').text("")
 			$('#tool_pic').attr('src', "");
 			$('#tool_description').text("");
