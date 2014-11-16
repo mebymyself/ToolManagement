@@ -3,23 +3,52 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close cancel_contract" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <h4 class="modal-title">Employee barcode: <strong id="employee_barcode"></strong></h4>
+      <h4 class="modal-title">Terms and Conditions:</h4>
     </div>
     <div class="modal-body">
-		<img src="" alt="" id="employee_pic">
+	    <ol>
+        <li><strong>Term.</strong>  This Agreement shall commence on the Effective Date and remain in full force and effect until Equipment is returned to the "Company".  </li> 
+        <li><strong>Payment.</strong>  Renter shall authorize the "Company" to charge the debit card or credit card on file an amount equal to all payments and fees due under this Agreement. Renter shall also pay other charges in accordance with this Agreement due upon return of Equipment, including but not limited to:
+        <ul>
+          <li>loss of, or damage or repair to the Equipment, loss of use, diminution of the Equipment’s value caused by damage to it or repair to it, and costs to enforce such charges including  administrative fees for processing the claim and legal expenses;</li>
+          <li>five dollars ($5.00) charge per day for late return of the Equipment;</li>
+          <li>all expenses the "Company" incurs due to the Employee's failure to return the Equipment including costs in locating and recovering the Equipment;</li>
+          <li>all costs incurred to collect unpaid monies due; and</li>
+          <li>twenty-five dollars ($25.00) or the maximum amount allowed by law, whichever is greater, for making payment with insufficient funds.</li>
+        </ul>
+        </li>
+        <li><strong>Location of Equipment.</strong>  During the Term, Equipment shall be located at the "Company's" properties, unless expressly agreed otherwise in writing by the "Company".</li>
+        <li><strong>Care of Equipment.</strong>  Equipment can only be used in a careful and proper manner and shall not be used in any way that is inconsistent with the "Company's" instructions or manuals.</li>
+        <li><strong>Restrictions on Use.</strong>  Employee shall not:
+          <ul>
+            <li>permit the Equipment to be used by any person who is not authorized to use such Equipment;</li>
+            <li>operate or use the Equipment or permit it to be operated or used to commit a violation of law; and/or</li>
+            <li>operate, use, maintain or store the Equipment in a manner likely to cause damage to the Equipment.</li>
+          </ul>
+        </li>
+      </ol>
+      
 
-			<p>First Name: <strong id="employee_first_name"></strong></p>
-			<p>Last Name: <strong id="employee_last_name"></strong></p>
-			<br>
-			<br>
-			<p>Last updated: <em id="employee_updated_at"></em></p>
-
-
-      <div class="modal-footer">
-        <button class="btn btn btn-danger invalid_search" data-dismiss="modal" aria-hidden="true">Please try again</button>
-      	<button class="btn btn btn-success" id="confirm_employee" data-dismiss="modal" aria-hidden="true">Confirm</button>
-      	<button class="btn btn btn-danger cancel_employee" data-dismiss="modal" aria-hidden="true">Cancel</button>
-      </div>
+      <form method="post" action="" class="sigPad">
+<!--         <label for="name">Print your name</label>
+        <input type="text" name="name" id="name" class="name"> -->
+        <p class="drawItDesc">Draw your signature</p>
+        <div class="signing-canvas">
+          <ul class="sigNav">
+            <li class="drawIt"><a href="#draw-it">Please sign</a></li>
+            <li class="clearButton"><a href="#clear">Clear</a></li>
+          </ul>
+          <div class="sig sigWrapper">
+            <div class="typed"></div>
+            <canvas class="pad" width="270" height="85"></canvas>
+            <input type="hidden" name="output" class="output">
+          </div><br>	
+        </div>
+  
+        <div class="modal-footer">
+          <%= submit_tag "I accept the terms of this contract", class: "btn btn-primary" %>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -28,23 +57,3 @@
 
 
 
-<h3>Contract</h3>
-<p>terms and condition blah blah blah...</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur eaque perferendis repellendus ab eius eum, rem earum laborum molestiae necessitatibus iusto. Veritatis enim sapiente rem molestiae eligendi! Harum, itaque, nostrum.</p>
-
-<form method="post" action="" class="sigPad">
-  <label for="name">Print your name</label>
-  <input type="text" name="name" id="name" class="name">
-  <p class="drawItDesc">Draw your signature</p>
-  <ul class="sigNav">
-    <li class="drawIt"><a href="#draw-it">Please sign</a></li>
-    <li class="clearButton"><a href="#clear">Clear</a></li>
-  </ul>
-  <div class="sig sigWrapper">
-    <div class="typed"></div>
-    <canvas class="pad" width="198" height="55"></canvas>
-    <input type="hidden" name="output" class="output">
-  </div>
-  <br>
-	<%= submit_tag "I accept the terms of this contract", class: "btn btn-primary" %>
-</form>

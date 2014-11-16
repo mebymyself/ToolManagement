@@ -53,12 +53,14 @@
 
     <div>
       <%#= f.submit "Submit", class: "btn btn-primary" %>
-      <%= submit_tag "Procced", :type => "button", :class => "btn btn-primary", data: { disable_with: "Please wait..." } %>
+      <%= submit_tag "Proceed", :type => "button", :class => "btn btn-primary proceed", data: { disable_with: "Please wait..." } %>
       <%= link_to "Cancel", issuances_path, class: "btn btn-default" %>
     </div>
 
     
-<%#= render "issuance_contract" %>    
+    <%= render "issuance_contract" %>    
+
+
   </div>
   <% end %>
 </div>
