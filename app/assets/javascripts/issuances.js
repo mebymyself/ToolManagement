@@ -131,8 +131,8 @@ ready = function() {
 	}
 
 	$(document).on('cocoon:before-insert',function(){
-		$('#' + toolInputId).attr('disabled', 'true');
-		$('#' + dueDateInputId).attr('disabled', 'true');
+		$('#' + toolInputId).attr('readonly', true);
+		$('#' + dueDateInputId).attr('disabled', true);
 		$('#activate_scanner_tool').attr('disabled', true);
 		$('#search-tool').attr('disabled', true);	
 
