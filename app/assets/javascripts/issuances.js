@@ -132,13 +132,13 @@ ready = function() {
 
 	$(document).on('cocoon:before-insert',function(){
 		$('#' + toolInputId).attr('readonly', true);
-		$('#' + dueDateInputId).attr('disabled', true);
+		$('#' + dueDateInputId).attr('readonly', true);
 		$('#activate_scanner_tool').attr('disabled', true);
 		$('#search-tool').attr('disabled', true);	
 
 		// remove hook from pervious line_item
 		$('#tool_barcode').attr('id', '');
-		$('#due_date').attr('id', '');
+		// $('#due_date').attr('id', '');
 		$('#activate_scanner_tool').attr('id', '');
 		$('#search-tool').attr('id', '');
 	});
