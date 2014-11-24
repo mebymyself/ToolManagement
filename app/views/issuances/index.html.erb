@@ -11,7 +11,7 @@
     
 
     <!-- additional search filter to show outstanding issuance only -->
-    <input id="outstanding-only" type="checkbox" > Show outstanding only</input>
+    <input id="outstanding-only" type="checkbox"> Show outstanding only</input>
     <br>
     <br>
     <table id="issuance-table" class="table display responsive no-wrap">
@@ -21,6 +21,7 @@
           <th>Employee</th>
           <th>Issued On</th>
           <th>No. of items</th>
+          <th class="never">Outstanding?</th>
           <th></th>
         </tr>
       </thead>
@@ -32,6 +33,7 @@
               <td><%= issuance.employee.first_name %> <%= issuance.employee.last_name %></td>
               <td><%= issuance.created_at %></td>
               <td><%= issuance.line_items.count %></td>
+              <td class="never"><%= issuance.outstanding_status %></td>
               <td><%= link_to 'Show', issuance_line_items_path(issuance) %></td>
             </tr>
         <% end %>

@@ -44,7 +44,7 @@ class IssuancesController < ApplicationController
 	private
 
 	def issuance_params
-    params.require(:issuance).permit(:incoming_employee_barcode, line_items_attributes: [:incoming_tool_barcode, :issuance_id, :tool_id, :quantity, :due_date, :return_date, :_destroy])
+    params.require(:issuance).permit(:incoming_employee_barcode, :outstanding_status, line_items_attributes: [:incoming_tool_barcode, :issuance_id, :tool_id, :quantity, :due_date, :return_date, :_destroy])
   end
 
 
