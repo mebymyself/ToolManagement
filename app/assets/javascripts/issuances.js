@@ -6,12 +6,26 @@ ready = function() {
 	dueDateInputId = $('#due_date').attr('for');
 
 	// JavaScript for dataTable applied to issuance_index
-	$('#issuance-table').DataTable ({
+	var iTable = $('#issuance-table').DataTable ({
 		"responsive": true,
 		"columnDefs": [{
 			"targets": 4,
 			"orderable": false
 		}]
+	});
+
+	$("#outstanding-only").click(function() {
+		if ($("#outstanding-only").is(":checked")) {
+			iTable
+				.columns(3)
+				.search(1)
+				.draw()
+		} else {
+			iTable
+				.columns(3)
+				.search("")
+				.draw()
+		};	
 	});
 
 	// JavaScript for scanning employee barcode
