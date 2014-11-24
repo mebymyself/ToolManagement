@@ -21,7 +21,7 @@ class Issuance < ActiveRecord::Base
     self.employee_id = employee.id
   end
 
-  def default_outstanding_true #this is to make sure all new issuance to have o/s as true
+  def default_outstanding_true #this is to make sure all new issuance to have o/s as true when first created
     self.outstanding_status ||= true
   end
 

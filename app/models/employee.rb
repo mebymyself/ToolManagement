@@ -28,7 +28,7 @@ class Employee < ActiveRecord::Base
     avatar.url(:medium)
   end
 
-  def self.any_outstanding(employee_id)
+  def self.any_outstanding(employee_id) #return true/false to see if employee have any tools outstanding
     @employee = Employee.find(employee_id)
     outstanding = false
     @employee.issuances.each do |issuance|

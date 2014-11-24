@@ -17,38 +17,11 @@
 <div class="clear-float"></div>
 	
 	<% if Employee.any_outstanding(@employee) %>
-		<h2>Outstanding Tools</h2>
-		<table class="table table-bordered">
-			<thead>
-				<th>Issuance ID</th>
-				<th>Issue date</th>
-				<th>Tool</th>
-				<th>Description</th>
-				<th>Quantity</th>
-				<th>Due Date</th>
-			</thead>
-			<tbody>
-				<% @employee.issuances.each do |issuance| %>
-					<% issuance.line_items.each do |line_item| %>
-						<% if line_item.return_date == nil %>
-							<tr>
-								<td><%= link_to line_item.issuance_id, issuance_line_items_path(issuance) %></td>
-								<td><%= line_item.created_at %></td>
-								<td><%= image_tag line_item.tool.image.url(:thumb) %></td>
-								<td><%= line_item.tool.description %></td>
-								<td><%= line_item.quantity %></td>
-								<td><%= line_item.due_date %></td>
-
-							</tr>
-						<% end %>
-					<% end %>
-				<% end %>
-			</tbody>
-		</table>
+		<%= render 'outstanding_tools' %>
 	<% end %>
 	<br>
 	<%= link_to "Back to Employees", employees_path, class: "btn btn-default" %> <%= link_to "Edit", edit_employee_path(@employee), class: "btn btn-primary" %>
-	</div>
+	</div><br>
 </div>
 
 
