@@ -21,8 +21,13 @@ class Issuance < ActiveRecord::Base
     self.employee_id = employee.id
   end
 
-
-
-
+  def self.check_issuance_status(issuance_id)
+    @issuance = Issuance.find(issuance_id)
+    outstanding = true
+    @issuance.line_items.each do |line_item|
+      outstanding = outstanding && line_item.return_date.nil?
+    end
+    @issuance.outstanding_status = false if !outstanding
+  end
 
 end
