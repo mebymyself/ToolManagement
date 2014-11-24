@@ -28,4 +28,15 @@ class Employee < ActiveRecord::Base
     avatar.url(:medium)
   end
 
+  def self.any_outstanding(employee_id)
+    @employee = Employee.find(employee_id)
+    outstanding = false
+    @employee.issuances.each do |issuance|
+      issuance.line_items.each do |line_item|
+        outstanding = outstanding || line_item.return_date.nil?
+      end
+    end
+    return outstanding
+  end
+  
 end
