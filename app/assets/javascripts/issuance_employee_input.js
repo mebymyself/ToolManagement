@@ -37,31 +37,32 @@ function loadScanner(type){
 		// readBarCodes:'CODE_128,QR_CODE,CODE_39'
 	});
 
-	var startScanning = setInterval(readBarCode, 500);
-
-	$('.cancel_scanner').click(function(){
-		clearInterval(startScanning);
-	});
-}
-
-var readBarCode = function(){
+	var startScanning = setInterval(function(){
 		var decodeValue = $.scriptcam.getBarCode();
+		alert('go');
 		if(!!decodeValue) {
-			clearInterval(refreshScanner);
+			clearInterval(startScanning);
 			$('#issuance_incoming' + type + '_barcode').val(decodeValue)
 			$('#ScanModal' + type).modal('hide');
 			if(type==='_employee') {
+				alert(type);
 				employeeModal();
 			} else if (type==='_tool') {
 				
 			};
 		}
 	}
+		, 500);
+
+	$('.cancel_scanner').click(function(){
+		clearInterval(startScanning);
+	});
+}
+
 
 
 function employeeModal(){
 	var searchValue = $('#issuance_incoming_employee_barcode').val()
-
 	$.getJSON('/employees?search=' + searchValue)
 	.done(function(data){
 		if (data.length !== 1) {
