@@ -5,61 +5,6 @@ ready = function() {
 	toolInputId = $('#tool_barcode').attr('for');
 	dueDateInputId = $('#due_date').attr('for');
 
-	// JavaScript for dataTable applied to issuance_index
-	var iTable = $('#issuance-table').DataTable ({
-		"responsive": true,
-		"columnDefs": [
-			{
-				"targets": [5],
-				"orderable": false
-			}, 
-			{
-				"targets": [4],
-				"visible": false,
-				"orderable": false
-			}
-		]
-	});
-
-	$("#outstanding-only").click(function() {
-		if ($("#outstanding-only").is(":checked")) {
-			iTable
-				.columns(4)
-				.search(true)
-				.draw()
-		} else {
-			iTable
-				.columns(4)
-				.search("")
-				.draw()
-		};	
-	});
-
-	// JavaScript for scanning employee barcode
-	$('#activate_scanner').click(function(){
-		$("#webcam_employee").scriptcam({
-			path: '/assets/',
-			width: 570,
-			height: 380,
-			onError:onError,
-			cornerRadius:0,
-			onWebcamReady:onWebcamReady,
-			// readBarCodes:'CODE_128,QR_CODE,CODE_39'
-		});
-
-		var refreshScanner = setInterval(function(){
-			var decodeValue = $.scriptcam.getBarCode();
-			if(!!decodeValue) {
-				clearInterval(refreshScanner);
-				$('#issuance_incoming_employee_barcode').val(decodeValue)
-				// $('#webcam_employee').remove();
-				// $('#webcam_employee_placeholder').append("<div id=\"webcam_employee\"></div>");
-				$('#myModal').modal('hide');
-				employeeModal();
-				$('#employeeSearchModal').modal('show');
-			}
-		}, 500);
-	});
 
 	$('#activate_scanner_tool').click(
 		function(){
@@ -261,11 +206,6 @@ ready = function() {
 		}
 
 	});
-
-
-
-
-
 }
 $(document).ready(ready);
 $(document).on('page:load', ready);
@@ -276,9 +216,9 @@ function onError(errorId,errorMsg) {
 	alert(errorMsg);
 }
 
-function changeCamera() {
-	$.scriptcam.changeCamera($('#cameraNames').val());
-}
+// function changeCamera() {
+// 	$.scriptcam.changeCamera($('#cameraNames').val());
+// }
 
 function onWebcamReady(cameraNames,camera,microphoneNames,microphone,volume) {
 	$.each(cameraNames, function(index, text) {
