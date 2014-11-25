@@ -2,7 +2,9 @@ var ready;
 ready = function() {  
 	
 	// JavaScript for activating employee barcode scanner
-	$('#activate_employee_scanner').click(loadScanner('_employee'));
+	$('#activate_employee_scanner').click(function(){
+		loadScanner('_employee');
+	});
 
 	// Employee lookup, a modal with searched employee will popup
 	$('#search-employee').click(function(){
@@ -16,13 +18,15 @@ ready = function() {
 
 	$('#confirm_employee').click(function(){
 		$('#confirm_employee, .cancel_employee, .invalid_search').show();
-		$('#issuance_incoming_employee_barcode, #search-employee, #activate_scanner').attr(readonly: true);
+		$('#issuance_incoming_employee_barcode').attr('readonly', true);
+		$('#input_employee').addClass('has-success');
+		$('#search-employee, #activate_employee_scanner').attr('disabled', true);
 	})
 }
 $(document).ready(ready);
 $(document).on('page:load', ready);
 
-var loadScanner = function(type){
+function loadScanner(type){
 	$("#webcam"+type).scriptcam({
 		path: '/assets/',
 		width: 570,
@@ -35,7 +39,7 @@ var loadScanner = function(type){
 
 	var startScanning = setInterval(readBarCode, 500);
 
-	$('.cancel_employee_scanner').click(function(){
+	$('.cancel_scanner').click(function(){
 		clearInterval(startScanning);
 	});
 }

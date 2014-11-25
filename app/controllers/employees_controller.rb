@@ -2,7 +2,7 @@ class EmployeesController < ApplicationController
   
   def index
   	@employees = if params[:search]
-      Employee.where("(barcode) LIKE (?)", "%#{params[:search]}")
+      Employee.where("barcode LIKE ? OR first_name LIKE? OR last_name LIKE?", "%#{params[:search]}", "%#{params[:search]}", "%#{params[:search]}")
     else
       Employee.all
     end
