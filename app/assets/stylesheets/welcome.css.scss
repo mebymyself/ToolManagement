@@ -18,22 +18,27 @@ ul.nav a:hover {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: silver; /*Change rollover cell color here*/
+  background-color: silver;
 }
 
 
 .navbar-default .navbar-nav > li > a {
-  color: white; /*Change active text color here*/
+  color: white;
 }
 
-#hero-fade {
-  -vendor-animation-duration: 5s;
-  -vendor-animation-delay: 2s;
+#brand-index {
+  color: #fff;
+}
+
+
+.jumbotron {
+  background: url("hero-bg-1.png") no-repeat center bottom;
+  background-size: cover;
+  height: 650px;
 }
 
 .hero-content {
   top: 90px;
-  margin: 0px;
 }
 
 .hero-content h1 {
@@ -60,34 +65,22 @@ p > .button {
 }
 
 
-// .section {
-//   padding: 30px 0 70px;
-// }
+.footer-content {
+	padding-top: 50px;
+}
 
-// footer {
-//   height: 100px;
-//   background-color: #27272B;
-//     // margin-top: 100%;
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   width: 100%;
-//   color: #fff;
-// }
+section {
+	margin: 130px auto;
 
-// .footer-content {
-// 	padding-top: 40px;
-// }
+}
 
-// section {
-// 	margin: 60px auto;
-// 	padding: 80px;
-//
-// }
+.intro h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
 
-.jumbotron {
-  background: url("hero-bg-1.png") no-repeat center bottom;
-  // background: url("hero-bg.jpg") no-repeat center bottom;
-  background-size: cover;
-  height: 600px;
+footer {
+  text-align: center;
+  margin: 10px auto;
 }

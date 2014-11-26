@@ -19,7 +19,6 @@ body {
 	background-color: #fff;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, 'Lato', sans-serif;
 	font-weight: 400px;
-	// padding-bottom: 40px;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
 	overflow-y: scroll;
@@ -64,8 +63,8 @@ ul.nav a:hover {
 
 .btn-ghost:hover {
   text-decoration: none;
-  color: #DE5842;
-  border: solid #DE5842 2px;
+  color: #fff;
+  border: solid #fff 2px;
 }
 
 .sign-up {
