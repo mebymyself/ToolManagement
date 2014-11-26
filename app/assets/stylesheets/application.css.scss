@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "normalize";
+@import "animate";
 
 // Reset
 @import "bootstrap/normalize";
@@ -15,4 +16,3 @@
 @import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
 @import "dataTables/extras/dataTables.responsive";
 @import "signature-pad";
-

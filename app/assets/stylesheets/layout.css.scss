@@ -25,10 +25,6 @@ body {
 	overflow-y: scroll;
 }
 
-.container {
-	width: 980px;
-}
-
 
 .navbar-default {
 	background-color: #fff;
@@ -39,8 +35,8 @@ ul.nav a {
 	font-weight: 600 !important;
 }
 
-ul.nav a:hover { 
-	color: #404040 !important; 
+ul.nav a:hover {
+	color: #404040 !important;
 }
 
 #search-size {
@@ -56,18 +52,18 @@ ul.nav a:hover {
   -webkit-border-radius: 1;
   -moz-border-radius: 1;
   border-radius: 1px;
-  color: #000;
-  font-size: 14px;
+  color: #fff;
   padding: 10px 20px 10px 20px;
-  border: solid #000 2px;
+  border: solid #fff 2px;
   text-decoration: none;
   background: transparent;
   position: absolute;
   margin: 20px auto;
+	font-weight: 500;
 }
 
 .btn-ghost:hover {
-  // text-decoration: none;
+  text-decoration: none;
   color: #DE5842;
   border: solid #DE5842 2px;
 }
