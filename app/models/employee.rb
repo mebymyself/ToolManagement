@@ -24,8 +24,12 @@ class Employee < ActiveRecord::Base
   end
 
   # This method is defined so that the view(JS) can access to an actual url without depending on paperclips' helper method
-  def avatar_url
-    avatar.url(:medium)
+  def avatar_url_thumb
+    avatar.url(:thumb)
+  end
+
+   def avatar_url
+    avatar.url
   end
 
   def self.any_outstanding(employee_id) #return true/false to see if employee have any tools outstanding

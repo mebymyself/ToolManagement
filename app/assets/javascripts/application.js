@@ -20,6 +20,7 @@
 //= require dataTables/extras/dataTables.responsive
 //= require cocoon
 //= require signature-pad
+//= require angular
 //= require_tree .
 
 

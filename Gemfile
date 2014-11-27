@@ -28,6 +28,7 @@ gem 'cocoon'
 gem 'scriptcam-rails'
 gem 'jquery-datatables-rails', '~> 3.0.0'
 gem 'signature-pad-rails'
+gem 'angularjs-rails'
 
 
 

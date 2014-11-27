@@ -1,26 +1,39 @@
 <div class="modal fade" id="employeeSearchModal">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close cancel_employee" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <h4 class="modal-title">Employee barcode: <strong id="employee_barcode"></strong></h4>
-    </div>
-    <div class="modal-body">
-		<img src="" alt="" id="employee_pic">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close cancel_employee" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Search for: <strong>{{empCtrl.empRadio}}</strong></h4>
+      </div>
+      <div class="modal-body">
+              
+          <table class="table display responsive no-wrap">
+            <thead>
+              <tr>
+                <th>Barcode</th>
+                <th>Image</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="employee in employees">
+                <td><input type="radio" ng-change="setUser(employee)" ng-model="empCtrl.empRadio" name="SearchEmpRes" id="{{employee.barcode}}" ng-value="{{employee.barcode}}"> <label for="{{employee.barcode}}">{{employee.barcode}}</label></td>
+                <td><img src="{{employee.avatar_url_thumb}}" alt="/assets/unavailable.png"></td>
+                <td>{{employee.first_name}} {{employee.last_name}}</td>
+              </tr>
+            </tbody>
+          </table>
+       
+  
+        <br>
 
-			<p>First Name: <strong id="employee_first_name"></strong></p>
-			<p>Last Name: <strong id="employee_last_name"></strong></p>
-			<br>
-			<br>
-			<p>Last updated: <em id="employee_updated_at"></em></p>
 
-
-      <div class="modal-footer">
-        <button class="btn btn btn-danger invalid_employee_search" data-dismiss="modal" aria-hidden="true">Please try again</button>
-      	<button class="btn btn btn-success" id="confirm_employee" data-dismiss="modal" aria-hidden="true">Confirm</button>
-      	<button class="btn btn btn-danger cancel_employee" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <div class="modal-footer">
+          <button class="btn btn btn-danger invalid_employee_search" data-dismiss="modal" aria-hidden="true" ng-click="empRadio = initial">Please try again</button>
+        	<button class="btn btn btn-success" id="confirm_employee" data-dismiss="modal" aria-hidden="true" disabled>Confirm</button>
+        	<button class="btn btn btn-danger cancel_employee" data-dismiss="modal" aria-hidden="true" ng-click="resetUser(); empCtrl.empRadio = null">Cancel</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
