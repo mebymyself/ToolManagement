@@ -6,24 +6,24 @@
 }
 
 
-ul.nav a {
+ul.custom-nav a {
   font-weight: 600 !important;
   color: #fff;
 }
 
-ul.nav a:hover {
+ul.custom-nav a:hover {
   color: #fff !important;
 }
 
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: silver;
+  background-color: yellow;
 }
 
 
 .navbar-default .navbar-nav > li > a {
-  color: white;
+  color: silver;
 }
 
 #brand-index {
