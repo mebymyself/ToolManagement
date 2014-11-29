@@ -21,6 +21,3 @@
 //= require cocoon
 //= require signature-pad
 //= require_tree .
-
-
-
