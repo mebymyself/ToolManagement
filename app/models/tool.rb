@@ -43,8 +43,7 @@ class Tool < ActiveRecord::Base
   private
 
     def ensure_not_referenced_by_any_line_items
-      if tools.any?
-        errors.add(:base, "Sorry! Cannot delete as Line Items are associated with this tool.")
+      if line_items.any?
         return false
       end
     end

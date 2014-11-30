@@ -1,5 +1,5 @@
 class ToolsController < ApplicationController
-	
+
 	def index
     if params[:search]
       @tools = Tool.where("(barcode) LIKE (?)", "%#{params[:search]}")
@@ -10,7 +10,7 @@ class ToolsController < ApplicationController
     end
 
     # @tools = Tool.all.page(params[:page])
-  	# @tools = Tool.order('tools.created_at DESC').page(params[:page]) 
+  	# @tools = Tool.order('tools.created_at DESC').page(params[:page])
 
     # The JSON request will return tool attributes and avatar url
     respond_to do |format|
@@ -64,8 +64,14 @@ class ToolsController < ApplicationController
 
   def destroy
     @tool = Tool.find(params[:id])
-    @tool.destroy
-    redirect_to tools_url
+
+		if @tool.destroy
+			redirect_to tools_url
+			flash.now[:notice] = "Delete Successful"
+		else
+			flash.now[:error] = "Issuances are associated with this tool and cannot be deleted"
+			render :edit
+		end
   end
 
 

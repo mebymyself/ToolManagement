@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  
+
   def index
   	@employees = if params[:search]
       Employee.where("(barcode) LIKE (?)", "%#{params[:search]}")
@@ -50,11 +50,17 @@ class EmployeesController < ApplicationController
   		render :edit
   	end
   end
-  
+
   def destroy
   	@employee = Employee.find(params[:id])
-  	@employee.destroy
-  	redirect_to employees_url
+
+    if @employee.destroy
+  	   redirect_to employees_url
+       flash.now[:notice] = "Delete Successful"
+     else
+       flash.now[:error] = "Issuances are associated with this employee and cannot be deleted"
+       render :edit
+     end
   end
 
 

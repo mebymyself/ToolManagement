@@ -28,10 +28,11 @@ gem 'cocoon'
 gem 'scriptcam-rails'
 gem 'jquery-datatables-rails', '~> 3.0.0'
 gem 'signature-pad-rails'
+gem "font-awesome-rails"
 
 
 
-group :development, :test do 
+group :development, :test do
 	gem 'pry-rails'
 	gem 'guard'
 	gem 'guard-livereload'
@@ -54,4 +55,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

@@ -34,7 +34,6 @@ class Employee < ActiveRecord::Base
 
     def ensure_not_referenced_by_any_issuance
       if issuances.any?
-        errors.add(:base, "Issuance present")
         return false
       end
     end
