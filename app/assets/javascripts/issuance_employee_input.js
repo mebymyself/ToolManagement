@@ -12,19 +12,16 @@ ready = function() {
 	// });
 
 	// Model buttons
-	$('.cancel_employee, .invalid_employee_search').click(function(){
-		employeeSearchReset();
-	})
+	// $('.cancel_employee, .invalid_employee_search').click(function(){
+	// 	employeeSearchReset();
+	// })
 
-
-
-
-	$('#confirm_employee').click(function(){
-		$('#confirm_employee, .cancel_employee, .invalid_search').show();
-		$('#issuance_incoming_employee_barcode').attr('readonly', true);
-		$('#input_employee').addClass('has-success');
-		$('#search-employee, #activate_employee_scanner').attr('disabled', true);
-	})
+	// $('#confirm_employee').click(function(){
+	// 	$('#confirm_employee, .cancel_employee, .invalid_search').show();
+	// 	$('#issuance_incoming_employee_barcode').attr('readonly', true);
+	// 	$('#input_employee').addClass('has-success');
+	// 	$('#search-employee, #activate_employee_scanner').attr('disabled', true);
+	// })
 }
 $(document).ready(ready);
 $(document).on('page:load', ready);
@@ -42,7 +39,6 @@ function loadScanner(type){
 
 	var startScanning = setInterval(function(){
 		var decodeValue = $.scriptcam.getBarCode();
-		alert('go');
 		if(!!decodeValue) {
 			clearInterval(startScanning);
 			$('#issuance_incoming' + type + '_barcode').val(decodeValue)
@@ -64,26 +60,26 @@ function loadScanner(type){
 
 
 
-// function employeeModal(){
-// 	var searchValue = $('#issuance_incoming_employee_barcode').val()
-// 	$.getJSON('/employees?search=' + searchValue)
-// 	.done(function(data){
-// 		if (data.length == 0) {
-// 			$('#employee_barcode, #employee_first_name, #employee_last_name, #employee_updated_at').text("Record not found");
-// 			$('#employee_pic').attr('src', "/assets/unavailable.png");
-// 			$('#confirm_employee, .cancel_employee').hide();
-// 		} else {
-// 			$('#issuance_incoming_employee_barcode').val(data[0].barcode);
-// 			$('#employee_barcode').text(data[0].barcode);
-// 			$('#employee_pic').attr('src', data[0].avatar_url);
-// 			$('#employee_first_name').text(data[0].first_name);
-// 			$('#employee_last_name').text(data[0].last_name);
-// 			$('#employee_updated_at').text(data[0].updated_at);	
-// 			$('.invalid_employee_search').hide();
-// 		};
-// 	$('#employeeSearchModal').modal('show');	
-// 	})
-// }
+function employeeModal(){
+	var searchValue = $('#issuance_incoming_employee_barcode').val()
+	$.getJSON('/employees?search=' + searchValue)
+	.done(function(data){
+		if (data.length == 0) {
+			$('#employee_barcode, #employee_first_name, #employee_last_name, #employee_updated_at').text("Record not found");
+			$('#employee_pic').attr('src', "/assets/unavailable.png");
+			$('#confirm_employee, .cancel_employee').hide();
+		} else {
+			$('#issuance_incoming_employee_barcode').val(data[0].barcode);
+			$('#employee_barcode').text(data[0].barcode);
+			$('#employee_pic').attr('src', data[0].avatar_url);
+			$('#employee_first_name').text(data[0].first_name);
+			$('#employee_last_name').text(data[0].last_name);
+			$('#employee_updated_at').text(data[0].updated_at);	
+			$('.invalid_employee_search').hide();
+		};
+	$('#employeeSearchModal').modal('show');	
+	})
+}
 
 function employeeSearchReset(){
 	$('#issuance_incoming_employee_barcode').val("");
@@ -94,5 +90,4 @@ function employeeSearchReset(){
 	}, 500);
 	$('#confirm_employee').attr('disabled', true);
 }
-
 
