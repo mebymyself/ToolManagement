@@ -21,3 +21,8 @@
 //= require cocoon
 //= require signature-pad
 //= require_tree .
+
+
+$(document).on("ready page:change", function() {
+  $('.tag-tooltip').tooltip();
+});

@@ -5,7 +5,7 @@ FactoryGirl.define do
     issuance_id 1
     tool_id 1
     quantity 1
-    tool_issued_at "2014-10-23 18:28:16"
-    due_date "2014-10-23 18:28:16"
+    due_date "2014-11-29 18:12:01"
+    return_date "2014-11-29 18:12:01"
   end
 end

@@ -1,9 +1,11 @@
-<h1>Editing: <%= @employee.first_name %> <%= @employee.last_name %></h1></br>
+<div class="page-header">
+  <h1>Editing: <%= @employee.first_name %> <%= @employee.last_name %></h1></br>
+</div>
 
+<div class="col-md-4">
 
-<div class="form-container">
   <%= form_for( @employee, :html => { :multipart => true } ) do |f| %>
-    
+
     <% if @employee.errors.any? %>
       <div id="error_explanation" class="bit-warning">
         <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -31,12 +33,10 @@
     <div class="form-group">
       <%= f.label :avatar, "Add an Avatar" %>
       <%= f.file_field :avatar %>
-    </div>          
+    </div>
     <div class="form-group">
       <%= f.submit "submit", class: "btn btn-primary" %>
       <%= link_to 'Delete', @employee, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   <% end %><!-- /form_for -->
 </div>
-
-

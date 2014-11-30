@@ -1,10 +1,12 @@
 class Employee < ActiveRecord::Base
-  include PgSearch 
-    pg_search_scope :search_including_tags, 
+  include PgSearch
+    pg_search_scope :search_including_tags,
     :against => [:first_name, :last_name, :barcode]
 
 	belongs_to :account
 	has_many :issuances
+
+  before_destroy :ensure_not_referenced_by_any_issuance
 
 	accepts_nested_attributes_for :issuances, :reject_if => :all_blank, :allow_destroy => true
 
@@ -27,5 +29,15 @@ class Employee < ActiveRecord::Base
   def avatar_url
     avatar.url(:medium)
   end
+
+  private
+
+    def ensure_not_referenced_by_any_issuance
+      if issuances.any?
+        errors.add(:base, "Issuance present")
+        return false
+      end
+    end
+
 
 end

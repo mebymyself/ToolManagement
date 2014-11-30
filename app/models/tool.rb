@@ -1,8 +1,8 @@
 class Tool < ActiveRecord::Base
   include PgSearch
-    pg_search_scope :search_including_tags, 
+    pg_search_scope :search_including_tags,
     :against => [:description, :barcode],
-    :associated_against => {:tags => [:name] } 
+    :associated_against => {:tags => [:name] }
 
 	has_many :line_items
   accepts_nested_attributes_for :line_items,  :reject_if => :all_blank, :allow_destroy => true
@@ -13,6 +13,8 @@ class Tool < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   validates :quantity, :presence => true
+
+  before_destroy :ensure_not_referenced_by_any_line_items
 
   def quantity_on_hand
     outstanding_line_items = line_items.where("return_date is null")
@@ -29,11 +31,22 @@ class Tool < ActiveRecord::Base
           end
         end
         tool.save!
-      end 
-    end 
+      end
+    end
 
   # This method is defined so that the view(JS) can access to an actual url without depending on paperclips' helper method
   def image_url
     image.url(:medium)
-  end  
+  end
+
+
+  private
+
+    def ensure_not_referenced_by_any_line_items
+      if tools.any?
+        errors.add(:base, "Sorry! Cannot delete as Line Items are associated with this tool.")
+        return false
+      end
+    end
+
 end
