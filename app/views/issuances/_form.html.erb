@@ -22,7 +22,7 @@
             <div class="input-group input-group-sm">
               <%= f.text_field :incoming_employee_barcode, :class => "form-control", autofocus: true, "ng-model" => "empCtrl.empRadio", :value => "{{empCtrl.empRadio.barcode}}"%>
               <span class="input-group-btn">
-                <button type="button" id="search-employee", data-toggle="modal" data-target="#employeeSearchModal" class="btn btn-default" ng-click="searchEmp(empCtrl.empRadio)">
+                <button type="button" id="search-employee" class="btn btn-default" ng-click="searchEmp(empCtrl.empRadio)">
                   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 </button>
                 <button type="button" id="activate_employee_scanner", data-toggle="modal" data-target="#ScanModal_employee" class="btn btn-default" ng-click="loadEmpScanner()">
