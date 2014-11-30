@@ -7,25 +7,51 @@ ready = (function() {
 		$scope.searchEmp = function(text) {
 			$http.get('/employees.json?search=' + text).success(function(data){
 				$scope.employees = data;
-				if ($scope.employees.length > 0) {
-					$('.invalid_employee_search').hide();
-				} else {
-					$('#confirm_employee').hide();
-					$('.cancel_employee').hide();
-
-				};	
 			});	
+		};
+
+		$scope.loadEmpScanner = function() {
+			$("#webcam_employee").scriptcam({
+				path: '/assets/',
+				width: 570,
+				height: 380,
+				onError:onError,
+				cornerRadius:0,
+				onWebcamReady:onWebcamReady,
+				// readBarCodes:'CODE_128,QR_CODE,CODE_39'
+			});
+
+			var startScanning = setInterval(function(){
+				var decodeValue = $.scriptcam.getBarCode();
+				if(!!decodeValue) {
+					clearInterval(startScanning);
+					$('#ScanModal_employee').modal('hide');
+					$http.get('/employees.json?search=' + decodeValue).success(function(data){
+						if (data.length === 1) {
+							$('#issuance_incoming_employee_barcode').val(decodeValue)
+							$scope.setUser(data[0]);
+						} else {
+							$('#errorModal').modal('show');	
+						};
+					});
+				};
+			}, 400);
+
+			$('.cancel_scanner').click(function(){
+				clearInterval(startScanning);
+			});
 		};
 
 		$scope.setUser = function(json) {
 			$scope.userName = json.first_name + " " + json.last_name;
 			$scope.userAvatar = json.avatar_url_thumb
-			$('#confirm_employee').attr('disabled', false);
+			$('.confirm_employee').attr('disabled', false);
 		}
 
 		$scope.resetUser = function() {
 			$scope.userName = null;
 			$scope.userAvatar = null;
+			$('.confirm_employee').attr('disabled', true);
 		}
 	}]);
 
