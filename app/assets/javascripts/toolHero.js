@@ -1,9 +1,8 @@
 var ready;
 ready = (function() {  
 	var app = angular.module('toolHero',[]);
+	
 	app.controller('empCtrl', ['$http', '$scope', function($http, $scope){
-		// $scope.employees = [];
-
 
 		$scope.searchEmp = function(text) {
 			$http.get('/employees.json?search=' + text).success(function(data){
@@ -13,6 +12,7 @@ ready = (function() {
 				} else {
 					$('#confirm_employee').hide();
 					$('.cancel_employee').hide();
+
 				};	
 			});	
 		};
@@ -27,14 +27,9 @@ ready = (function() {
 			$scope.userName = null;
 			$scope.userAvatar = null;
 		}
-
-
-			
-
-
-
-
 	}]);
+
+
 })()
 $(document).ready(ready);
 $(document).on('page:load', ready);
