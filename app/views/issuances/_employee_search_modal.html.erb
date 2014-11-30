@@ -2,8 +2,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close cancel_employee" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Search for: <strong>{{empCtrl.empRadio}}</strong></h4>
+        <button type="button" class="close cancel_employee" ng-click="resetUser(); empCtrl.empRadio=null" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Please select employee:</h4>
       </div>
       <div class="modal-body">
               
@@ -23,13 +23,10 @@
               </tr>
             </tbody>
           </table>
-       
-  
+
         <br>
-
-
+        
         <div class="modal-footer">
-<!--           <button class="btn btn btn-danger invalid_employee_search" data-dismiss="modal" aria-hidden="true" ng-click="empRadio = initial">Please try again</button> -->
         	<button class="btn btn btn-success confirm_employee" data-dismiss="modal" aria-hidden="true" ng-click="confirmUser()" disabled>Confirm</button>
         	<button class="btn btn btn-danger cancel_employee" data-dismiss="modal" aria-hidden="true" ng-click="resetUser(); empCtrl.empRadio = null">Cancel</button>
         </div>
