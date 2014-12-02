@@ -71,7 +71,7 @@
           </div>
         </div>
   <% end %>
-  
+
 
   <% unless @issuances.blank? %>
     <h2>Transactions Found:</h2>
@@ -91,6 +91,7 @@
                 <% @issuances.each do |issuance| %>
                   <tr>
                   <td><%= issuance.id %></td>
+                  <td><%= issuance.employee_id %></td>
                   <td><%= issuance.employee.first_name %></td>
                   <td><%= issuance.created_at %></td>
                   <td><%= link_to 'Show', issuance %></td>

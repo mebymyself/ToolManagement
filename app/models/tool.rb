@@ -7,14 +7,16 @@ class Tool < ActiveRecord::Base
 	has_many :line_items
   accepts_nested_attributes_for :line_items,  :reject_if => :all_blank, :allow_destroy => true
 
-  acts_as_taggable
+  validates :quantity, :presence => true
+  validates_uniqueness_of :barcode
+
+  before_destroy :ensure_not_referenced_by_any_line_items
+
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
-  validates :quantity, :presence => true
-
-  before_destroy :ensure_not_referenced_by_any_line_items
+  acts_as_taggable
 
   def quantity_on_hand
     outstanding_line_items = line_items.where("return_date is null")
