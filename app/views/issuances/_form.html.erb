@@ -14,30 +14,36 @@
 
 
   <div class="form-group">
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="form-group">
-          <%= f.label :incoming_employee_barcode, "Employee Barcode" %>
-          <div class="input-group input-group-sm">
-            <%= f.text_field :incoming_employee_barcode, :class => "form-control", autofocus: true %>
-            <span class="input-group-btn">
-              <button type="button" id="search-employee", data-toggle="modal" data-target="#employeeSearchModal" class="btn btn-default">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-              </button>
-              <button type="button" id="activate_scanner", data-toggle="modal" data-target="#myModal" class="btn btn-default">
-                <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
-              </button>
-            </span>
-          </div>
+    <div ng-controller="empCtrl">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-group" id="input_employee">
+            <%= f.label :incoming_employee_barcode, "Employee Barcode" %>
+            <div class="input-group input-group-sm">
+              <%= f.text_field :incoming_employee_barcode, :class => "form-control", autofocus: true, "ng-model" => "empCtrl.empRadio", :value => "{{empCtrl.empRadio.barcode}}"%>
+              <span class="input-group-btn">
+                <button type="button" id="search-employee" class="btn btn-default" ng-click="searchEmp(empCtrl.empRadio)">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+                <button type="button" id="activate_employee_scanner", data-toggle="modal" data-target="#ScanModal_employee" class="btn btn-default" ng-click="loadEmpScanner()">
+                  <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+                </button>
+              </span>
+            </div>
+          </div> 
         </div> 
-      </div> 
-    </div>   
-      
+      </div>   
+      <!-- Register employee for issuance     -->
+      <p>{{userName}}</p>
+      <img src="{{userAvatar}}">
+  
 
-    <%= render 'employee_search_modal' %>
+      <%= render 'employee_search_modal' %>
 
-    <%= render 'employee_confirmation_modal' %>
+      <%= render 'employee_scan_modal' %>
 
+      <%= render 'error_modal' %>
+    </div>
 
     <h3>Line Items</h3>
 
@@ -64,4 +70,6 @@
   </div>
   <% end %>
 </div>
+
+
 

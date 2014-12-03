@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-	skip_before_filter :authenticate_user!, only: :index
+	skip_before_filter :authenticate_user!
 
 	layout 'welcome'
 
@@ -8,5 +8,9 @@ class WelcomeController < ApplicationController
 
   def pricing
   end
+
+
+	def beta
+	end
 
 end

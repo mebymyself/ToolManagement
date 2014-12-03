@@ -14,7 +14,8 @@ class Employee < ActiveRecord::Base
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   validates_uniqueness_of :barcode
-  
+
+  private
 
  # CSV Import
   def self.import(file)
@@ -30,17 +31,30 @@ class Employee < ActiveRecord::Base
   end
 
   # This method is defined so that the view(JS) can access to an actual url without depending on paperclips' helper method
-  def avatar_url
-    avatar.url(:medium)
+  def avatar_url_thumb
+    avatar.url(:thumb)
   end
 
-  private
 
-    def ensure_not_referenced_by_any_issuance
-      if issuances.any?
-        return false
+  def ensure_not_referenced_by_any_issuance
+    if issuances.any?
+      return false
+    end
+  end
+
+
+  def avatar_url
+    avatar.url
+  end
+
+  def self.any_outstanding(employee_id) #return true/false to see if employee have any tools outstanding
+    @employee = Employee.find(employee_id)
+    outstanding = false
+    @employee.issuances.each do |issuance|
+      issuance.line_items.each do |line_item|
+        outstanding = outstanding || line_item.return_date.nil?
       end
     end
-
-
+    return outstanding
+  end
 end

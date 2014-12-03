@@ -2,14 +2,14 @@ class EmployeesController < ApplicationController
 
   def index
   	@employees = if params[:search]
-      Employee.where("(barcode) LIKE (?)", "%#{params[:search]}")
+      Employee.where("barcode LIKE ? OR LOWER(first_name) LIKE LOWER(?) OR LOWER(last_name) LIKE LOWER(?)", "%#{params[:search]}", "%#{params[:search]}", "%#{params[:search]}")
     else
       Employee.all
     end
     # The JSON request will return employee attributes and avatar url
     respond_to do |format|
       format.html
-      format.json {render json: @employees.to_json(:methods => [:avatar_url])}
+      format.json {render json: @employees.to_json(:methods => [:avatar_url, :avatar_url_thumb])}
     end
   end
 
