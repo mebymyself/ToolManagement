@@ -43,7 +43,7 @@ ul.nav a:hover {
 
 .hero-content h1 {
 
-	line-height: 2%;
+	// line-height: 2%;
   text-align: center;
   color: #fff;
   padding: 30px;
@@ -59,9 +59,14 @@ ul.nav a:hover {
   text-align: center;
 }
 
-p > .button {
+.button {
+  // small change here. got rid of p > 
   margin-top: 10px;
   text-align: center;
+
+  .btn-ghost {
+    position: relative;
+  }
 }
 
 
