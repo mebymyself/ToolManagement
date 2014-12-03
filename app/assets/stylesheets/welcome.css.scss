@@ -42,8 +42,6 @@ ul.custom-nav a:hover {
 }
 
 .hero-content h1 {
-
-	line-height: 2%;
   text-align: center;
   color: #fff;
   padding: 30px;
@@ -59,11 +57,14 @@ ul.custom-nav a:hover {
   text-align: center;
 }
 
-p > .button {
+.button {
   margin-top: 10px;
   text-align: center;
 }
 
+.btn-ghost {
+  position: relative;
+}
 
 .footer-content {
 	padding-top: 50px;
