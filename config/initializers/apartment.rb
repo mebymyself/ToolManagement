@@ -1,6 +1,6 @@
 # Require whichever elevator you're using below here...
 #
-# require 'apartment/elevators/generic'
+require 'apartment/elevators/generic'
 # require 'apartment/elevators/domain'
 require 'apartment/elevators/subdomain'
 
