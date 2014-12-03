@@ -34,7 +34,10 @@ Rails.application.routes.draw do
   constraints(SubdomainBlank) do
 	  root 'welcome#index'
 	  resources :accounts, only: [:new, :create]
-		resources :welcome
+
+		get '/beta' => 'welcome#beta'
+
 	end
+
 
 end
