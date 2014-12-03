@@ -13,7 +13,7 @@ class Tool < ActiveRecord::Base
   before_destroy :ensure_not_referenced_by_any_line_items
 
 
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   acts_as_taggable
