@@ -32,8 +32,6 @@ gem "font-awesome-rails"
 gem 'angularjs-rails'
 
 
-
-
 group :development, :test do
 	gem 'pry-rails'
 	gem 'guard'
