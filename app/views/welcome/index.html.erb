@@ -2,8 +2,8 @@
     <div class="container">
       <%= render 'welcome/nav' %>
       <div id="hero-fade" class="col-md-12 hero-content ">
-        <h1 class="hero-title">Don't be left in the dark.</h1>
-        <h3>Know where your expensive tools and equipment are.</h3>
+        <h1 class="hero-title">It&rsquo;s <%= Time.zone.now.strftime("%m %P")  %>.<br>Where are your <br><span class="typedjs"></span></h1>
+        <h3>ToolHERO knows where your tools are.</h3>
           <p class="button"><%= link_to "Get Beta Access", beta_path, class: 'btn btn-lg btn-ghost' %></p>
       </div>
     </div>

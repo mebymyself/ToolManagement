@@ -21,6 +21,7 @@
 //= require cocoon
 //= require signature-pad
 //= require angular
+//= require typed
 //= require_tree .
 
 
