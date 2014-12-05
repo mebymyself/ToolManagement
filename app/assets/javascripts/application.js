@@ -22,6 +22,8 @@
 //= require signature-pad
 //= require angular
 //= require typed
+//= require smooth-scroll
+//= require moment
 //= require_tree .
 
 

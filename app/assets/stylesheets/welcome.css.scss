@@ -18,13 +18,23 @@ ul.custom-nav a:hover {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: yellow;
+  // background-color: yellow;
 }
 
 
 .navbar-default .navbar-nav > li > a {
-  // color: silver;
+  color: silver;
 }
+
+.navbar-header {
+  .navbar-brand {
+    color: silver;
+  }
+  .navbar-brand:hover {
+        color: white;
+      }
+}
+
 
 #brand-index {
   color: #fff;
@@ -91,23 +101,23 @@ footer {
 }
 
 .typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
+    opacity: 0;
+    -webkit-animation: blink 0.7s 50;
+    -moz-animation: blink 0.7s 50;
+    animation: blink 0.7s 50;
 }
 @keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+    0% { opacity:0; }
+    50% { opacity:1; }
+    100% { opacity:0; }
 }
 @-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+    0% { opacity:0; }
+    50% { opacity:1; }
+    100% { opacity:0; }
 }
 @-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+    0% { opacity:0; }
+    50% { opacity:1; }
+    100% { opacity:0; }
 }

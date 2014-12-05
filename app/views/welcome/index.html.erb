@@ -2,7 +2,7 @@
     <div class="container">
       <%= render 'welcome/nav' %>
       <div id="hero-fade" class="col-md-12 hero-content ">
-        <h1 class="hero-title">It&rsquo;s <%= Time.zone.now.strftime("%m %P")  %>.<br>Where are your <br><span class="typedjs"></span></h1>
+        <h1 class="hero-title">It&rsquo;s <span class="time-now"></span>.<br>Where are your <br><span class="typedjs"></span></h1>
         <h3>ToolHERO knows where your tools are.</h3>
           <p class="button"><%= link_to "Get Beta Access", beta_path, class: 'btn btn-lg btn-ghost' %></p>
       </div>
@@ -51,6 +51,7 @@
 <section>
   <div class="container">
       <div class="col-md-6">
+       
         <h2 id="features">Features</h2>
         <p>Keep inventory of you equipment or specialized tools.</p>
         <ul>
@@ -67,3 +68,4 @@
 
   </div>
 </section>
+

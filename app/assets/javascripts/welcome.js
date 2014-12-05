@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).on('page:load ready', function() {
 
   // Hero content animation
   $('#hero-fade').addClass('animated fadeInUp');
@@ -12,5 +12,6 @@ $( document ).ready(function() {
             // loop
             loopCount: 2
         });
-
+  $('.time-now').text(moment().format('h a'));
+  
 }); // end of document ready
