@@ -22,7 +22,8 @@ ul.custom-nav a:hover {
 }
 
 
-.navbar-default .navbar-nav > li > a {
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:visited {
   color: silver;
 }
 
@@ -62,8 +63,10 @@ ul.custom-nav a:hover {
 }
 
 .hero-content h3 {
+  font-family: 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
   text-align: center;
   color: #fff;
+  margin-bottom: 70px;
 }
 
 .hero-title {
@@ -89,10 +92,19 @@ section {
 
 }
 
-.intro h1 {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 10px;
+.intro {
+   font-family: 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+   text-align: justify;
+
+    h1 {
+      font-family: Helvetica, Arial, sans-serif;
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+    .slug {
+      text-align: center;
+    }
 }
 
 footer {

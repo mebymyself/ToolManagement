@@ -3,7 +3,7 @@ $(document).on('page:load ready', function() {
   // Hero content animation
   $('#hero-fade').addClass('animated fadeInUp');
   $(".typedjs").typed({
-            strings: ["Drills?", "Screwdrivers?", "Generators?", "Wrenches?", "Expensive Things?", "Tools?" ],
+            strings: ["Drills?", "Screwdrivers?", "Generators?", "Wrenches?", "Compressors?", "Tools?" ],
             typeSpeed: 100,
             contentType: 'text',
             backSpeed: 100,
@@ -12,6 +12,6 @@ $(document).on('page:load ready', function() {
             // loop
             loopCount: 2
         });
-  $('.time-now').text(moment().format('h a'));
+  $('.time-now').text(moment().format('ha'));
   
 }); // end of document ready
