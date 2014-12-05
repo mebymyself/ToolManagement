@@ -3,12 +3,12 @@ $(document).on('page:load ready', function() {
   // Hero content animation
   $('#hero-fade').addClass('animated fadeInUp');
   $(".typedjs").typed({
-            strings: ["Drills?", "Screwdrivers?", "Generators?", "Wrenches?", "Compressors?", "Tools?" ],
-            typeSpeed: 100,
+            strings: ["drills?", "screwdrivers?", "generators?", "wrenches?", "tools?" ],
+            typeSpeed: 50,
             contentType: 'text',
-            backSpeed: 100,
+            backSpeed: 50,
             // time before backspacing
-            backDelay: 1400,
+            backDelay: 1700,
             // loop
             loopCount: 2
         });

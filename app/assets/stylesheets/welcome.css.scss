@@ -114,9 +114,9 @@ footer {
 
 .typed-cursor{
     opacity: 0;
-    -webkit-animation: blink 0.7s 50;
-    -moz-animation: blink 0.7s 50;
-    animation: blink 0.7s 50;
+    -webkit-animation: blink 0.7s 40;
+    -moz-animation: blink 0.7s 40;
+    animation: blink 0.7s 40;
 }
 @keyframes blink{
     0% { opacity:0; }
