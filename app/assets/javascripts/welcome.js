@@ -13,5 +13,10 @@ $(document).on('page:load ready', function() {
             loopCount: 2
         });
   $('.time-now').text(moment().format('ha'));
+  smoothScroll.init({
+        speed: 1500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 0
+    });
   
 }); // end of document ready

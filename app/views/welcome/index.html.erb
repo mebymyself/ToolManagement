@@ -1,7 +1,7 @@
-  <div class="jumbotron">
+  <div class="jumbotron" id="top">
     <div class="container">
       <%= render 'welcome/nav' %>
-      <div id="hero-fade" class="col-md-12 hero-content ">
+      <div id="hero-fade" class="col-md-12 hero-content">
         <h1 class="hero-title">It&rsquo;s <span class="time-now"></span>.<br>Where are your <span class="typedjs"></span></h1>
         <h3>Get <strong>ToolHERO</strong>. Know where your tools are.</h3>
           <p class="button"><%= link_to "Request Beta Access", beta_path, class: 'btn btn-lg btn-ghost' %></p>
@@ -22,14 +22,14 @@
 </div>
 
 
-<section>
+<section class="works-section" id="how">
   <div class="container">
       <div class="col-md-6">
-        <%= image_tag("app-screen.png", :alt => "toolhero") %>
+        <%= image_tag("tool-barcode.png", :alt => "toolhero") %>
       </div>
 
       <div class="col-md-6">
-        <h2 id="how">How does ToolHERO work?</h2>
+        <h2 >How does ToolHERO work?</h2>
         <p> You generate small barcode labels, either with us or on your own, then apply those labels to the tools and equipment in your inventory. Track an unlimited number of assets. Any piece of equipment that can take a label can be tracked by ToolHERO. </p>
 
         <p>Then import your full list of inventory and employees into ToolHERO and let the tracking begin! </p>
@@ -42,9 +42,12 @@
 </section>
 
 
-<section>
-  <div class="container">       
-    <h2 id="features">Key Features</h2>
+<section id="features" class="features-section">
+  <div class="container">      
+
+    <h2 >  <a data-scroll href="#top"><button type="button" class="btn btn-default" aria-label="Left Align">
+  <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+  </button> </a>Key Features</h2>
       <div class="col-md-4">
         <h3>Control Your Inventory</h3>
           <p>It&#8217;s time to retire the Excel spreadsheet and (shudder) pen and paper log book that you&#8217;ve been using to track your equipment. Instantly see who your equipment was issued to and by whom.</p>
@@ -61,9 +64,9 @@
       </div>
   </div>
 </section>
-<section>
+<section id="roadmap" class="roadmap-section">
   <div class="container">       
-    <h2 id="roadmap">Roadmap</h2>
+    <h2 >Roadmap</h2>
       <div class="col-md-6">
         <p>We have ambitious plans for future development. Here are some of the things we're planning to include in future versions of ToolHERO.</p>
         <ul>
@@ -75,14 +78,15 @@
         </ul>
       </div>
       <div class="col-md-6">
-        <%= image_tag("tool-barcode.png") %>
+        <%= image_tag("app-screen.png") %>
       </div>
 </section>
-<section>
+<section id="sign-up">
   <div class="container">
-    <div class="col-md-10 col-md-offset-1">
-      <h2 id="sign-up">Sign Up</h2>
-      <p>ToolHERO is in beta right now, but we have big plans for future development and we want you to be a part of it. Sign up if you are interested in using the product right now in your organization and let's work together can help us make it even better. If you want to find out more about the release date or keep up to date with ToolHERO&#8217;s development join our mailing list: </p>
+    <div class="col-md-10 col-md-offset-1 intro">
+      <h1><strong>Sign Up</strong></h1>
+      <p class='lead'>ToolHERO is in beta right now, but we have big plans for future development and we want you to be a part of it.</p>
+      <p class='lead'> Sign up if you are interested in using the product right now in your organization and let's work together can help us make it even better. If you want to find out more about the release date or keep up to date with ToolHERO&#8217;s development join our mailing list: </p>
       <div class="input-group input-group-lg">
       <span class="input-group-addon">@</span>
       <input type="text" class="form-control" placeholder="Your Email Address">

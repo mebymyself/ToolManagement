@@ -74,6 +74,56 @@ ul.custom-nav a:hover {
   text-align: center;
 }
 
+section.works-section {
+   background: image-url("hero-back.png") no-repeat center bottom;
+   background-size: cover;
+   padding: 60px 0;
+   margin: 90px 0;
+
+    h2 {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    p {
+      font-family: 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+      text-align: justify;
+      font-size: 1.3em;
+    }
+}
+
+section.roadmap-section {
+  background: image-url("brick-background.png") no-repeat center bottom;
+  background-size: cover;
+  padding: 60px 0;
+  font-family: 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+  text-align: justify;
+  font-size: 1.3em;
+   // margin: 90px 0;
+      h2 {
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-left: 15px;
+        }
+      p {
+        
+      }
+}
+section.features-section {
+  font-family: 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+  text-align: justify;
+  font-size: 1.3em;
+
+    h2 {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      margin-left: 15px;
+       a {
+        text-decoration: none;
+       }
+    }
+}
 .button {
   margin-top: 10px;
   text-align: center;
@@ -100,6 +150,7 @@ section {
       font-family: Helvetica, Arial, sans-serif;
       text-align: center;
       font-size: 30px;
+      margin-top: 40px;
       margin-bottom: 25px;
     }
     .slug {
