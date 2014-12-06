@@ -25,12 +25,17 @@
 <section class="works-section" id="how">
   <div class="container">
       <div class="col-md-6">
-        <%= image_tag("tool-barcode.png", :alt => "toolhero") %>
+        <%= image_tag("tool-barcode.png", :alt => "toolhero", :class => "img-responsive") %>
       </div>
 
       <div class="col-md-6">
-        <h2 >How does ToolHERO work?</h2>
-        <p> You generate small barcode labels, either with us or on your own, then apply those labels to the tools and equipment in your inventory. Track an unlimited number of assets. Any piece of equipment that can take a label can be tracked by ToolHERO. </p>
+        <h2>
+          <a data-scroll href="#top"><button type="button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+            </button> 
+          </a>How does ToolHERO work?
+        </h2>
+        <p> Small barcode labels, either obtained from us or on your own, are applied to the tools and equipment in your inventory. You can track an unlimited number of assets and any piece of equipment that can take a label can be tracked by ToolHERO.</p>
 
         <p>Then import your full list of inventory and employees into ToolHERO and let the tracking begin! </p>
 
@@ -45,20 +50,23 @@
 <section id="features" class="features-section">
   <div class="container">      
 
-    <h2 >  <a data-scroll href="#top"><button type="button" class="btn btn-default" aria-label="Left Align">
+    <h2>  <a data-scroll href="#top"><button type="button" class="btn btn-default" aria-label="Left Align">
   <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
   </button> </a>Key Features</h2>
-      <div class="col-md-4">
+      <div class="col-md-4 circle-centre">
+       <%= image_tag("inventory-circle.png", :alt => "toolhero", :class => "img-circle", :size => "200x200") %>
         <h3>Control Your Inventory</h3>
           <p>It&#8217;s time to retire the Excel spreadsheet and (shudder) pen and paper log book that you&#8217;ve been using to track your equipment. Instantly see who your equipment was issued to and by whom.</p>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 circle-centre">
+        <%= image_tag("cloud-image.png", :alt => "toolhero", :class => "img-circle", :size => "200x200") %>
         <h3>Cloud Based</h3>
         <p> Move into the future with cloud based software that you can run on your phone. Manage tools and equipment remotely at any time or day, from anywhere in the world and from any device.</p>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 circle-centre">
+        <%= image_tag("lightbulb-circle.jpg", :alt => "toolhero", :class => "img-circle", :size => "200x200") %>
         <h3>Easy-to-Use</h3>
         <p>You won't need an advanced degree to use our software. Simple, effective and easy-to-learn, <strong>ToolHERO</strong> will give you the control you always wanted for a fraction of the cost of any comparable system.</p>
       </div>
@@ -66,7 +74,11 @@
 </section>
 <section id="roadmap" class="roadmap-section">
   <div class="container">       
-    <h2 >Roadmap</h2>
+    <h2>
+    <a data-scroll href="#top"><button type="button" class="btn btn-default" aria-label="Left Align">
+      <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+      </button> 
+    </a>Roadmap</h2>
       <div class="col-md-6">
         <p>We have ambitious plans for future development. Here are some of the things we're planning to include in future versions of ToolHERO.</p>
         <ul>
@@ -81,15 +93,27 @@
         <%= image_tag("app-screen.png") %>
       </div>
 </section>
-<section id="sign-up">
+<section id="sign-up" class="sign-up-section">
   <div class="container">
     <div class="col-md-10 col-md-offset-1 intro">
       <h1><strong>Sign Up</strong></h1>
       <p class='lead'>ToolHERO is in beta right now, but we have big plans for future development and we want you to be a part of it.</p>
-      <p class='lead'> Sign up if you are interested in using the product right now in your organization and let's work together can help us make it even better. If you want to find out more about the release date or keep up to date with ToolHERO&#8217;s development join our mailing list: </p>
-      <div class="input-group input-group-lg">
-      <span class="input-group-addon">@</span>
-      <input type="text" class="form-control" placeholder="Your Email Address">
+      <p class='lead'> Sign up for <%= link_to "Beta Access", beta_path %> if you are interested in using the product right now in your organization and let's work together can help us make it even better.</p>
+      <p class='lead last-par'>If you want to find out more about the release date or keep up to date with ToolHERO&#8217;s development join our mailing list: </p>
+      <div class='input-group input-group-lg'>
+        <span class="input-group-addon">@</span>
+        <input type="text" class="form-control" placeholder="Your Email Address">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Join our List!</button>
+        </span>
+      </div>
+
+                 <!-- <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+                </span>
+              </div> -->
     </div>
   </div>
 </section>
