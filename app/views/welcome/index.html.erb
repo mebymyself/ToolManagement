@@ -25,7 +25,7 @@
 <section class="works-section" id="how">
   <div class="container">
       <div class="col-md-6">
-        <%= image_tag("tool-barcode.png", :alt => "toolhero", :class => "img-responsive") %>
+        <%= image_tag("ward-scanning-blue.jpg", :alt => "toolhero", :class => "img-responsive bordered", :width => "475") %>
       </div>
 
       <div class="col-md-6">
@@ -35,13 +35,15 @@
             </button> 
           </a>How does ToolHERO work?
         </h2>
-        <p> Small barcode labels, either obtained from us or on your own, are applied to the tools and equipment in your inventory. You can track an unlimited number of assets and any piece of equipment that can take a label can be tracked by ToolHERO.</p>
+        <p> Small barcode labels, that you can get from us at ToolHERO or print yourself, are applied to the tools and equipment in your inventory.</p>
 
-        <p>Then import your full list of inventory and employees into ToolHERO and let the tracking begin! </p>
+        <p>Then simply import your full inventory list along with a list of your employees and let the tracking begin! </p>
+
+        <p>ToolHERO can track an unlimited number of assets and any piece of equipment that can take a label can be tracked.</p>
 
         <p>Using the built in camera on your tablet or smartphone you scan the tool or piece of equipment and match it to the employee that checked it out &#8211; Boom! You are now tracking your inventory with ToolHERO! Now you know who has what and when they need to bring it back. </p>
 
-        <p>Because ToolHERO exists in the cloud there is no software to install, no proprietary hardware is necessary. You already have everything you need to get started. </p>
+        <p>Because ToolHERO exists in the cloud there is no software to install, no proprietary hardware to buy. You already have everything you need to get started. </p>
       </div>
   </div>
 </section>
@@ -90,15 +92,20 @@
         </ul>
       </div>
       <div class="col-md-6">
-        <%= image_tag("app-screen.png") %>
+        <%= image_tag("app-screen.png", :width => "600" ) %>
       </div>
 </section>
 <section id="sign-up" class="sign-up-section">
   <div class="container">
     <div class="col-md-10 col-md-offset-1 intro">
-      <h1><strong>Sign Up</strong></h1>
+      <h1>
+        <a data-scroll href="#top"><button type="button" class="btn btn-default" aria-label="Left Align">
+          <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+          </button> 
+        </a>
+      <strong>Sign Up</strong></h1>
       <p class='lead'>ToolHERO is in beta right now, but we have big plans for future development and we want you to be a part of it.</p>
-      <p class='lead'> Sign up for <%= link_to "Beta Access", beta_path %> if you are interested in using the product right now in your organization and let's work together can help us make it even better.</p>
+      <p class='lead'> Sign up for <%= link_to "Beta Access", beta_path %> if you are interested in using the product right now in your organization and let's work together to make it even better.</p>
       <p class='lead last-par'>If you want to find out more about the release date or keep up to date with ToolHERO&#8217;s development join our mailing list: </p>
       <div class='input-group input-group-lg'>
         <span class="input-group-addon">@</span>
@@ -107,13 +114,11 @@
           <button class="btn btn-default" type="button">Join our List!</button>
         </span>
       </div>
-
-                 <!-- <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Go!</button>
-                </span>
-              </div> -->
+      <div class="circle-centre">
+       <%= image_tag("logo-maybe.jpg", :alt => "toolhero", :class => "img-circle", :size => "200x200") %>
+       <h1>Save your day with <strong>ToolHERO</strong>.</h1>
+      </div>
+          
     </div>
   </div>
 </section>
