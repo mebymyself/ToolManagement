@@ -128,10 +128,14 @@ section.roadmap-section {
         li {
           margin-bottom: 15px;
           list-style-type: square;
+          text-align: left;
         }
         .btn-default {
           color: white;
           background-color: #423327;
+        }
+        img {
+          margin-top: 30px;
         }
 }
 section.features-section {
@@ -165,7 +169,7 @@ section.sign-up-section {
   }
 
   .circle-centre {
-      margin: 150px 0 75px;
+      margin: 100px 0 75px;
       text-align: center;
 
       img {
